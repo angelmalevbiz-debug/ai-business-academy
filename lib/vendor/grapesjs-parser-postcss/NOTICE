@@ -1,0 +1,6 @@
+# Provenance
+Package: grapesjs-parser-postcss 1.0.3, BSD-3-Clause.
+Source: https://github.com/GrapesJS/parser-postcss
+Unmodified npm dependency; bundled with the locally imported visual editor.
+Used because the browser CSSOM parser drops valid variable-based background shorthand.
+No CDN script, telemetry or paid runtime added. Full license retained alongside this notice.

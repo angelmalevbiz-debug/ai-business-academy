@@ -1,0 +1,6 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Remove the entire dark background from this supplied logo. Preserve the EXACT existing silver-white and blue triangular A mark, all three metallic folded ribbon pieces, their angles and proportions, no redesign. Deliver only the mark on genuinely transparent alpha background, close-fitting square image with modest 6 percent padding, fully visible edges, no drop shadow outside the originalmark, no square backdrop and no added text. Preserve the blue and silver original surface, precise contours and transparent triangular inner holes.",
+  "role": "academyLogoCutout",
+  "origin": "Generated in this task from user-supplied brand references; conceptual illustration, not evidence of results."
+}

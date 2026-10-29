@@ -1,0 +1,31 @@
+# Explicit build-context allowlist. Credentials, local databases, review captures,
+# model files, downloaded reference projects and existing builds never enter it.
+**
+!package.json
+!package-lock.json
+!THIRD_PARTY_NOTICES.md
+!tsconfig.json
+!next-env.d.ts
+!next.config.ts
+!app/
+!app/**
+!components/
+!components/**
+!lib/
+!lib/**
+!public/
+!public/**
+!scripts/
+!scripts/**
+scripts/**/__pycache__/
+scripts/**/*.pyc
+scripts/**/*.pyo
+**/.env
+**/.env.*
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite
+**/*.sqlite3
+**/*.pem
+**/*.key

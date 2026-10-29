@@ -1,0 +1,11 @@
+.method{margin-block:24px 34px;border-block:1px solid #373b43;color:#f7f7f8;}
+.method summary{cursor:pointer;min-height:52px;display:list-item;align-content:center;margin-left:18px;padding-block:12px;font-size:13px;}
+.method ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
+.method li{display:flex;gap:15px;min-width:0;padding:20px 0;}
+.method li>span{font-size:13px;color:#ffb2bd;font-variant-numeric:tabular-nums;}
+.method h3{margin:0;font-size:18px;line-height:1.4;}
+.method p{font-size:13px;line-height:1.7;color:#c8cbd2;}
+.method a{font-size:11px;color:#c7dbff;text-underline-offset:4px;line-height:1.7;overflow-wrap:anywhere;display:inline-block;align-content:center;min-height:44px;}
+.method :is(a,summary):focus-visible{outline:3px solid #a5c4ff;outline-offset:4px;}
+.method .note{font-size:11px;margin-bottom:22px;}
+@media(max-width:760px){.method ol{grid-template-columns:1fr;gap:0;}.method li+li{border-top:1px solid #343841;}}

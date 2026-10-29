@@ -1,0 +1,270 @@
+.journey {
+  --journey-ink: #edf3ff;
+  --journey-muted: #b5c4df;
+  --journey-blue: #328bff;
+  --journey-orange: #e66b2f;
+  color: var(--journey-ink);
+  padding-block: 16px 4px;
+}
+
+.trail {
+  list-style: none;
+  margin: 0;
+  padding: 0 42px 0 0;
+}
+
+.stop {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.stop:nth-child(even) {
+  margin-inline: 42px -42px;
+}
+
+.stop:last-child {
+  padding-bottom: 0;
+}
+
+.connector {
+  position: absolute;
+  width: 44px;
+  height: calc(100% - 44px);
+  left: 41px;
+  top: 68px;
+  overflow: visible;
+  pointer-events: none;
+  color: #2e405c;
+}
+
+.stop:nth-child(even) .connector {
+  left: -1px;
+}
+
+.connector path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 3 5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.connector.travelled {
+  color: var(--journey-blue);
+}
+
+.connector.travelled path {
+  stroke-dasharray: none;
+}
+
+.journey .step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 22px;
+  min-height: 100px;
+  padding: 16px 14px 16px 10px;
+  border: 0;
+  border-radius: 16px;
+  text-align: left;
+  color: var(--journey-ink);
+  background: #090f19;
+  isolation: isolate;
+  transition: background-color 180ms ease-out;
+}
+
+.journey .step:hover {
+  background: #111e30;
+}
+
+.journey .step:focus-visible {
+  outline: 3px solid var(--journey-blue);
+  outline-offset: 4px;
+}
+
+.journey .current {
+  background: #13294a;
+  padding-block: 22px;
+}
+
+.journey .current:hover {
+  background: #183359;
+}
+
+.node {
+  --node-tilt: -5deg;
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #2e405c;
+  border-radius: 23px;
+  color: #ff956a;
+  background: #111e30;
+  transform: rotate(var(--node-tilt));
+}
+
+.node > svg {
+  transform: rotate(5deg);
+}
+
+.stop:nth-child(even) .node {
+  --node-tilt: 5deg;
+}
+
+.stop:nth-child(even) .node > svg {
+  transform: rotate(-5deg);
+}
+
+.current .node {
+  background: var(--journey-blue);
+  color: #090f19;
+  border-color: transparent;
+}
+
+.done .node {
+  color: var(--journey-blue);
+  background: #111e30;
+}
+
+.number {
+  position: absolute;
+  bottom: -7px;
+  right: -6px;
+  min-width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--journey-ink);
+  background: #111e30;
+  border: 1px solid #2e405c;
+  transform: rotate(5deg);
+  font-variant-numeric: tabular-nums;
+}
+
+.stop:nth-child(even) .number {
+  transform: rotate(-5deg);
+}
+
+.current .number {
+  background: var(--journey-orange);
+  color: #090f19;
+  border-color: transparent;
+}
+
+.copy {
+  flex: 1;
+  min-width: 0;
+  padding-block: 1px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 7px;
+  color: var(--journey-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.current .meta,
+.done .meta {
+  color: #b1ceff;
+}
+
+.journey .title {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 700;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+.journey .step:hover .title {
+  text-decoration: none;
+}
+
+.journey .current .title {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.summary {
+  display: block;
+  color: #c1d0e8;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 52ch;
+  margin-top: 10px;
+}
+
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 10px 17px;
+  border-radius: 11px;
+  background: var(--journey-blue);
+  color: #090f19;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nextArrow {
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--journey-muted);
+}
+
+.empty {
+  padding-block: 24px;
+  color: #b5c4df;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .current:hover .node,
+  .current:focus-visible .node {
+    animation: greet 420ms cubic-bezier(.16, 1, .3, 1) 1;
+  }
+}
+
+@keyframes greet {
+  0% { transform: rotate(var(--node-tilt)) translateY(0); }
+  45% { transform: rotate(calc(var(--node-tilt) + 8deg)) translateY(-5px); }
+  100% { transform: rotate(var(--node-tilt)) translateY(0); }
+}
+
+@media (max-width: 700px) {
+  .trail { padding-right: 0; }
+  .stop:nth-child(even) { margin-inline: 0; }
+  .journey .step { gap: 16px; padding: 16px 10px; min-height: 96px; }
+  .journey .current { padding-block: 20px; }
+  .node { flex-basis: 52px; width: 52px; height: 52px; border-radius: 18px; }
+  .node > svg { width: 27px; height: 27px; }
+  .connector,
+  .stop:nth-child(even) .connector { left: 35px; width: 2px; top: 64px; height: calc(100% - 40px); }
+  .journey .title { font-size: 14px; }
+  .journey .current .title { font-size: 17px; }
+  .meta { font-size: 12px; }
+  .summary { font-size: 13px; }
+  .nextArrow { display: none; }
+  .number { width: 23px; min-width: 23px; height: 23px; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey .step { transition: none; }
+}

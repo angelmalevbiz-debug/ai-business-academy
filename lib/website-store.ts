@@ -1,0 +1,85 @@
+import {randomUUID} from 'node:crypto';
+import {mkdirSync,readFileSync,writeFileSync,unlinkSync} from 'node:fs';
+import {dirname,resolve} from 'node:path';
+import sharp from 'sharp';
+import {AppError,textField} from './auth';
+import type {Member} from './domain';
+import {getDb,transaction} from './db';
+import {WEBSITE_SECTION_TYPES,WEBSITE_STYLES,type Website,type WebsiteAsset,type WebsiteDocument,type WebsiteSection,type WebsiteBusinessDetails} from './website-domain';
+import {renderWebsiteHtml} from './website-render';
+import {sanitizeWebsiteVisual,websiteVisualAssets} from './website-visual';
+import {validateWebsiteDesign,validateWebsitePhotoCredits} from './website-design';
+
+export function websiteMember(user:Member|null):Member{if(!user)throw new AppError('Влез в профила си, за да запазиш сайта.',401);return user;}
+const optional=(value:unknown,name:string,max:number)=>value===undefined||value===''?'':textField(value,name,0,max);
+const uuid=(value:unknown)=>{if(typeof value!=='string'||! /^[a-f0-9-]{36}$/.test(value))throw new AppError('Сайтът не е намерен.',404);return value;};
+function questions(value:unknown){if(!Array.isArray(value)||value.length>12)throw new AppError('Добави до 12 въпроса.');return value.map(raw=>{if(!raw||typeof raw!=='object')throw new AppError('Невалиден въпрос.');return {question:textField(raw.question,'Въпрос',1,200),answer:textField(raw.answer,'Отговор',1,1500)};});}
+function businessDetails(value:unknown):WebsiteBusinessDetails|undefined{if(value==null)return undefined;if(typeof value!=='object'||Array.isArray(value))throw new AppError('Детайлите за бизнеса не се разчитат.');const d=value as Record<string,unknown>;const lines=(value:unknown)=>{if(value==null)return [];if(!Array.isArray(value)||value.length>12)throw new AppError('Добави до 12 реда.');return value.map(line=>textField(line,'Ред',1,300));};return {about:optional(d.about,'За бизнеса',2000),address:optional(d.address,'Адрес',500),hours:optional(d.hours,'Работно време',500),process:lines(d.process),pricing:lines(d.pricing),questions:d.questions==null?[]:questions(d.questions)};}
+function facts(data:Record<string,unknown>){
+ const name=textField(data.name,'Име на бизнеса',2,100),offer=textField(data.offer,'Какво предлагаш',3,1200);
+ if(data.businessStage!=='new'&&data.businessStage!=='existing')throw new AppError('Избери нов или съществуващ бизнес.');
+ if(!WEBSITE_STYLES.includes(data.style as typeof WEBSITE_STYLES[number]))throw new AppError('Избери визия на сайта.');
+ return {name,offer,audience:optional(data.audience,'За кого',700),contact:optional(data.contact,'Контакт',500),brief:optional(data.brief,'Допълнителни детайли',3000),businessStage:data.businessStage,style:data.style,...(data.businessDetails!=null?{businessDetails:businessDetails(data.businessDetails)}:{})} as Pick<Website,'name'|'offer'|'audience'|'contact'|'brief'|'businessStage'|'style'|'businessDetails'>;
+}
+export function validateWebsiteDocument(value:unknown):WebsiteDocument{
+ if(!value||typeof value!=='object'||Array.isArray(value))throw new AppError('Съдържанието на сайта не се разчита.');
+ const input=value as Record<string,unknown>;
+ if(input.theme!=='light'&&input.theme!=='dark')throw new AppError('Избери светла или тъмна визия.');
+ if(typeof input.accent!=='string'||!/^#[a-fA-F0-9]{6}$/.test(input.accent))throw new AppError('Избери валиден акцентен цвят.');
+ if(!Array.isArray(input.sections)||input.sections.length<1||input.sections.length>10)throw new AppError('Сайтът трябва да има между 1 и 10 секции.');
+ const ids=new Set<string>();
+ const sections=input.sections.map((raw:unknown):WebsiteSection=>{
+  if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new AppError('Невалидна секция.');const item=raw as Record<string,unknown>;
+  const id=textField(item.id,'Секция',1,64);if(!/^[a-zA-Z0-9_-]+$/.test(id)||ids.has(id))throw new AppError('Секциите трябва да имат различни валидни имена.');ids.add(id);
+  if(!WEBSITE_SECTION_TYPES.includes(item.type as WebsiteSection['type']))throw new AppError('Неподдържан вид секция.');
+  const section:WebsiteSection={id,type:item.type as WebsiteSection['type'],title:textField(item.title,'Заглавие',1,160),body:optional(item.body,'Текст',2500)};
+  if(item.items!==undefined){if(!Array.isArray(item.items)||item.items.length>12)throw new AppError('Добави до 12 елемента.');section.items=item.items.map(value=>textField(value,'Елемент',1,300));}
+  if(item.questions!==undefined)section.questions=questions(item.questions);
+  if(item.tiles!==undefined){if(!Array.isArray(item.tiles)||item.tiles.length>8)throw new AppError('Добави до 8 визуални предложения.');section.tiles=item.tiles.map(raw=>{if(!raw||typeof raw!=='object')throw new AppError('Невалидно визуално предложение.');const tile=raw as Record<string,unknown>;const result:{title:string;body:string;image?:string;buttonLabel?:string;buttonUrl?:string}={title:textField(tile.title,'Заглавие',1,120),body:optional(tile.body,'Описание',500)};if(tile.image){if(typeof tile.image!=='string'||!/^\/api\/websites\/assets\/[a-f0-9-]{36}$/.test(tile.image))throw new AppError('Използвай качена снимка.');result.image=tile.image;}if(tile.buttonLabel)result.buttonLabel=textField(tile.buttonLabel,'Бутон',1,60);if(tile.buttonUrl){const href=textField(tile.buttonUrl,'Адрес',1,1000);let safe=/^#[a-zA-Z0-9_-]+$/.test(href);try{const parsed=new URL(href);safe=['http:','https:','mailto:','tel:'].includes(parsed.protocol)&&!parsed.username&&!parsed.password;}catch{}if(!safe)throw new AppError('Невалиден адрес на предложението.');result.buttonUrl=href;}return result;});}
+  if(item.image){const image=textField(item.image,'Снимка',1,100);if(!/^\/api\/websites\/assets\/[a-f0-9-]{36}$/.test(image))throw new AppError('Използвай качена снимка.');section.image=image;}
+  if(item.buttonLabel)section.buttonLabel=textField(item.buttonLabel,'Бутон',1,60);
+  if(item.buttonUrl){const url=textField(item.buttonUrl,'Адрес',1,1000);let safe=/^#[a-zA-Z0-9_-]+$/.test(url);try{const parsed=new URL(url);safe=['http:','https:','mailto:','tel:'].includes(parsed.protocol)&&!parsed.username&&!parsed.password;}catch{}if(!safe)throw new AppError('Бутонът изисква уеб адрес, имейл, телефон или секция.');section.buttonUrl=url;}
+  return section;
+ });
+ if(sections[0].type!=='hero'||sections.filter(item=>item.type==='hero').length!==1)throw new AppError('Първата секция трябва да е единственото начало на сайта.');
+ if(input.businessKind!==undefined&&!['retail','hospitality','service','portfolio','general'].includes(String(input.businessKind)))throw new AppError('Невалиден вид сайт.');
+ if(input.compositionVersion!==undefined&&(!Number.isInteger(input.compositionVersion)||Number(input.compositionVersion)<1||Number(input.compositionVersion)>10))throw new AppError('Невалидна версия на структурата.');
+ return {title:textField(input.title,'Име на страницата',2,160),description:optional(input.description,'Описание',350),accent:input.accent,theme:input.theme,sections,...(input.businessKind!==undefined?{businessKind:input.businessKind as WebsiteDocument['businessKind']}:{}),...(input.compositionVersion!==undefined?{compositionVersion:Number(input.compositionVersion)}:{}),...(input.design!=null?{design:validateWebsiteDesign(input.design)}:{}),...(input.photoCredits!=null?{photoCredits:validateWebsitePhotoCredits(input.photoCredits)}:{}),...(input.visual!=null?{visual:sanitizeWebsiteVisual(input.visual)}:{})};
+}
+function parse(row:Record<string,unknown>):Website{const backup=getDb().prepare('SELECT MAX(revision) AS revision FROM website_build_backups WHERE site_id=? AND member_id=?').get(String(row.id),String(row.member_id));return {...JSON.parse(String(row.payload)),id:String(row.id),name:String(row.name),revision:Number(row.revision),...(backup?.revision?{previousBuildRevision:Number(backup.revision)}:{}),createdAt:String(row.created_at),updatedAt:String(row.updated_at)} as Website;}
+export function listWebsites(userInput:Member|null):Website[]{const user=websiteMember(userInput);return getDb().prepare('SELECT * FROM website_projects WHERE member_id=? ORDER BY updated_at DESC').all(user.id).map(parse);}
+export function getWebsite(userInput:Member|null,idInput:unknown):Website{const user=websiteMember(userInput),id=uuid(idInput);const row=getDb().prepare('SELECT * FROM website_projects WHERE member_id=? AND id=?').get(user.id,id);if(!row)throw new AppError('Сайтът не е намерен.',404);return parse(row);}
+export function createWebsite(userInput:Member|null,data:Record<string,unknown>):Website{
+ const user=websiteMember(userInput),input=facts(data),id=randomUUID(),now=new Date().toISOString();
+ const contactUrl=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.contact)?`mailto:${input.contact}`:/^https:\/\//.test(input.contact)?input.contact:'';
+ const document:WebsiteDocument={title:input.name,description:input.offer.slice(0,350),accent:input.style==='bold'?'#e23c36':'#255ae8',theme:input.style==='studio'?'dark':'light',sections:[{id:'start',type:'hero',title:input.name,body:input.offer,...(input.contact?{buttonLabel:'Свържи се с нас',buttonUrl:'#contact'}:{})},...(input.contact?[{id:'contact',type:'contact' as const,title:'Свържи се с нас',body:input.contact,...(contactUrl?{buttonLabel:'Пиши ни',buttonUrl:contactUrl}:{})}]:[])]};
+ transaction(()=>{if(Number(getDb().prepare('SELECT COUNT(*) AS count FROM website_projects WHERE member_id=?').get(user.id)!.count)>=10)throw new AppError('Можеш да запазиш до 10 сайта.');getDb().prepare('INSERT INTO website_projects(id,member_id,name,payload,created_at,updated_at) VALUES(?,?,?,?,?,?)').run(id,user.id,input.name,JSON.stringify({...input,document,generation:null}),now,now);});
+ return getWebsite(user,id);
+}
+function checkImages(user:Member,document:WebsiteDocument){const images=[...document.sections.flatMap(section=>[...(section.image?[section.image]:[]),...(section.tiles||[]).flatMap(tile=>tile.image?[tile.image]:[])]),...(document.visual?websiteVisualAssets(document.visual):[])];for(const image of new Set(images))readWebsiteAsset(user,image.split('/').at(-1));}
+export function saveWebsite(userInput:Member|null,data:Record<string,unknown>,generation?:Website['generation']):Website{
+ const user=websiteMember(userInput),site=getWebsite(user,data.id),revision=Number(data.revision);if(!Number.isSafeInteger(revision)||revision!==site.revision)throw new AppError('Сайтът е променен в друг прозорец. Зареди последната версия.',409);
+ const input=facts({...site,...data}),document=validateWebsiteDocument(data.document);checkImages(user,document);
+ const result=getDb().prepare('UPDATE website_projects SET name=?,payload=?,revision=revision+1,updated_at=? WHERE id=? AND member_id=? AND revision=?').run(input.name,JSON.stringify({...input,document,generation:generation===undefined?site.generation:generation}),new Date().toISOString(),site.id,user.id,revision);
+ if(Number(result.changes)!==1)throw new AppError('Сайтът е променен в друг прозорец. Зареди последната версия.',409);return getWebsite(user,site.id);
+}
+function assetDirectory(){return process.env.WEBSITE_ASSET_DIR?resolve(process.env.WEBSITE_ASSET_DIR):resolve(dirname(process.env.COMMUNITY_DB_PATH||resolve(process.cwd(),'.data','community.db')),'website-assets');}
+export function readWebsiteAsset(userInput:Member|null,idInput:unknown){const user=websiteMember(userInput),id=uuid(idInput),row=getDb().prepare('SELECT * FROM website_assets WHERE member_id=? AND id=?').get(user.id,id);if(!row)throw new AppError('Снимката не е намерена.',404);let bytes:Buffer;try{bytes=readFileSync(resolve(assetDirectory(),String(row.storage_key)));}catch{throw new AppError('Файлът на снимката не е наличен.',404);}return {bytes,mime:String(row.mime),name:String(row.name)};}
+export async function uploadWebsiteAsset(userInput:Member|null,file:{name:string;bytes:Buffer}):Promise<WebsiteAsset>{
+ const user=websiteMember(userInput);if(file.bytes.length===0||file.bytes.length>6*1024*1024)throw new AppError('Избери снимка до 6 MB.',413);
+ let output:Buffer;let width=0,height=0;
+ try{const image=sharp(file.bytes,{limitInputPixels:40_000_000,animated:false,failOn:'warning'});const meta=await image.metadata();if(!['png','jpeg','webp'].includes(meta.format||'')||!meta.width||!meta.height||meta.pages&&meta.pages>1)throw new Error();const result=await image.rotate().resize({width:2200,height:2200,fit:'inside',withoutEnlargement:true}).webp({quality:85}).toBuffer({resolveWithObject:true});output=result.data;width=result.info.width;height=result.info.height;}catch{throw new AppError('Снимката не се разчита. Избери JPG, PNG или WebP.');}
+ const bytes=output;if(bytes.length>5*1024*1024)throw new AppError('Снимката е прекалено голяма след обработка.',413);
+ const id=randomUUID(),key=`${id}.webp`,directory=assetDirectory();mkdirSync(directory,{recursive:true});
+ transaction(()=>{const usage=getDb().prepare('SELECT COUNT(*) AS count,COALESCE(SUM(bytes),0) AS bytes FROM website_assets WHERE member_id=?').get(user.id)!;if(Number(usage.count)>=40||Number(usage.bytes)+bytes.length>40*1024*1024)throw new AppError('Достигна лимита от 40 снимки или 40 MB.');writeFileSync(resolve(directory,key),bytes,{flag:'wx'});try{getDb().prepare('INSERT INTO website_assets(id,member_id,storage_key,name,mime,bytes,width,height,created_at) VALUES(?,?,?,?,?,?,?,?,?)').run(id,user.id,key,file.name.slice(0,160),'image/webp',bytes.length,width,height,new Date().toISOString());}catch(error){unlinkSync(resolve(directory,key));throw error;}});
+ return {id,url:`/api/websites/assets/${id}`,name:file.name.slice(0,160),mime:'image/webp',bytes:bytes.length,width,height};
+}
+export function exportWebsiteHtml(user:Member|null,id:unknown):string{const site=getWebsite(user,id);return renderWebsiteHtml(site,url=>{const asset=readWebsiteAsset(user,url.split('/').at(-1));return `data:${asset.mime};base64,${asset.bytes.toString('base64')}`;});}
+export function claimWebsiteGeneration(userInput:Member|null,id:unknown,revision:unknown){const user=websiteMember(userInput),site=getWebsite(user,id);if(site.revision!==revision)throw new AppError('Зареди последната версия на сайта.',409);const lease=randomUUID();transaction(()=>{const now=Date.now();if(Number(getDb().prepare('SELECT COUNT(*) AS count FROM website_projects WHERE generation_until>?').get(now)!.count)>=2)throw new AppError('Два сайта се подготвят в момента. Опитай отново след малко.',429);const result=getDb().prepare('UPDATE website_projects SET generation_lease=?,generation_until=? WHERE id=? AND member_id=? AND generation_until<=? AND revision=?').run(lease,now+240000,site.id,user.id,now,site.revision);if(Number(result.changes)!==1)throw new AppError('Този сайт вече се генерира или е променен.',409);});return {site,lease};}
+export function releaseWebsiteGeneration(id:string,lease:string){getDb().prepare('UPDATE website_projects SET generation_lease=NULL,generation_until=0 WHERE id=? AND generation_lease=?').run(id,lease);}
+export function readWebsiteAccountData(userInput:Member|null){const user=websiteMember(userInput);return {websites:listWebsites(user),assets:getDb().prepare('SELECT id,name,mime,bytes,width,height,created_at FROM website_assets WHERE member_id=?').all(user.id),buildBackups:getDb().prepare('SELECT site_id,revision,snapshot,created_at FROM website_build_backups WHERE member_id=?').all(user.id)};}
+export function rollbackNewWebsite(userInput:Member|null,id:string){const user=websiteMember(userInput);getDb().prepare('DELETE FROM website_projects WHERE id=? AND member_id=? AND revision=1').run(id,user.id);}
+export function restoreWebsiteBuild(userInput:Member|null,input:Record<string,unknown>){const user=websiteMember(userInput),site=getWebsite(user,input.id);if(site.revision!==input.revision)throw new AppError('Зареди последната версия на сайта.',409);const row=getDb().prepare('SELECT snapshot FROM website_build_backups WHERE site_id=? AND member_id=? ORDER BY revision DESC LIMIT 1').get(site.id,user.id);if(!row)throw new AppError('Няма запазен предишен вариант.',404);const snapshot=JSON.parse(String(row.snapshot)) as Website;return saveWebsite(user,{...snapshot,id:site.id,revision:site.revision},snapshot.generation);}
+function purgeDb(){const db=getDb();db.exec('CREATE TABLE IF NOT EXISTS website_asset_purge(storage_key TEXT PRIMARY KEY,created_at TEXT NOT NULL)');return db;}
+export function markWebsiteAssetsForDeletion(memberId:string){purgeDb().prepare('INSERT OR IGNORE INTO website_asset_purge(storage_key,created_at) SELECT storage_key,? FROM website_assets WHERE member_id=?').run(new Date().toISOString(),memberId);}
+export function cleanWebsiteAssetDeletions(){const db=purgeDb();for(const row of db.prepare('SELECT storage_key FROM website_asset_purge').all()){const key=String(row.storage_key);if(!/^[a-f0-9-]{36}\.webp$/.test(key))continue;try{unlinkSync(resolve(assetDirectory(),key));}catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')continue;}db.prepare('DELETE FROM website_asset_purge WHERE storage_key=?').run(key);}}

@@ -1,0 +1,6 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Recreate ONLY the large main hero ARTWORK from the provided AI Business Academy screen reference as a standalone premium wide landscape illustration with NO TEXT whatsoever, NO UI, NO surrounding screenshot or sidebar. Keep the exact silver and electric cobalt-blue folded triangular A sculpture on a low midnight podium, rich metallic realistic bevels, dark midnight #090f19 background seamlessly fading at all outer edges. Thin electric blue connections lead from the left simple input document panel through the A at center toward right two small transparent blue process module panels and a circular check marker. Restrained coral-orange light at one output node. Hero object predominantly right center, enough dark negative space left for semantic UI overlay in the app. NO labels, NO letters, NO words, NO button, NO charts that imply actual performance data, no stars or magical particles. This is a CONCEPTUAL process illustration, not claimed data. Match the elegant restrained 3D optical material and dramatic blue lighting of reference main art. Wide 3:2 composition fillingcanvas, highest quality, no whiteborder.",
+  "role": "academyHero",
+  "origin": "Generated in this task from user-supplied brand references; conceptual illustration, not evidence of results."
+}

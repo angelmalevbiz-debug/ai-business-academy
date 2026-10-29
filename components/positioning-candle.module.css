@@ -1,0 +1,5 @@
+.scene{width:min(100%,540px);margin:0 auto;color:#17191e;}
+.scene svg{display:block;width:100%;height:auto;}
+.flame{transform-origin:232px 98px;}
+@media(prefers-reduced-motion:no-preference){.flame{animation:ignite 700ms cubic-bezier(.16,1,.3,1) both;}}
+@keyframes ignite{from{opacity:0;transform:scaleY(.35)}to{opacity:1;transform:scaleY(1)}}

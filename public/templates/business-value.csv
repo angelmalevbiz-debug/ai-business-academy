@@ -1,0 +1,5 @@
+scenario,tasks_per_month,manual_minutes_per_task,automated_and_review_minutes_per_task,monthly_maintenance_minutes,net_minutes_released,monthly_tool_cost_eur,one_time_setup_cost_eur
+Учебен пример с нисък обем,20,10,6,60,20,30,120
+Учебен пример с висок обем,100,10,6,60,340,30,120
+Твоят измерен сценарий,,,,,,,,
+

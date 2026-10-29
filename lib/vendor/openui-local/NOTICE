@@ -1,0 +1,24 @@
+OpenUI local refinement prompt adaptation
+
+Upstream project: OpenUI — https://github.com/wandb/openui
+Upstream commit: 42d7ab4ab6650433486dfb12eb3783c393a3e475
+Source file: frontend/src/api/openai.ts, createOrRefine
+Source permalink:
+https://github.com/wandb/openui/blob/42d7ab4ab6650433486dfb12eb3783c393a3e475/frontend/src/api/openai.ts
+
+Copyright 2024 Weights and Biases, Inc.
+Licensed under the Apache License, Version 2.0. See LICENSE in this directory.
+
+Changes in this adaptation:
+- Extracted the existing-HTML-plus-requested-change refinement mechanism into
+  buildOpenUILocalPrompt, a pure TypeScript function.
+- Added CSS, factual context and a strict HTML/CSS JSON response contract.
+- Replaced the original Tailwind/placeholder-image/JavaScript guidance with
+  Bulgarian static-site, no-external-dependency and factual-content rules.
+- Removed the browser OpenAI client, all paid-provider selection, credentials,
+  vision model switching, model calls, streaming transport, telemetry and logs.
+- The Academy caller supplies an explicitly local transport and server-side
+  validation. The complete OpenUI application or agent runtime is not embedded.
+
+This notice identifies source provenance; it does not imply endorsement by
+OpenUI or Weights and Biases, Inc.

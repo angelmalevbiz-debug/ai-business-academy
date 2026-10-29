@@ -1,0 +1,28 @@
+import {test,expect} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import {randomUUID} from 'node:crypto';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const root=resolve('docs/local-web-builder-20261028'),origin=process.env.COMMUNITY_E2E_ORIGIN||'http://127.0.0.1:3100';
+const facts={name:'Север · вело ателие',offer:'Настройка на спирачки и скорости. Ремонт на спукани гуми.',audience:'Градски велосипедисти.',contact:'studio@example.test',brief:'',businessStage:'existing',style:'editorial'};
+test('actual GrapesJS edits, undo, persistence and export work with zero paid APIs',async({page})=>{
+ await mkdir(root,{recursive:true});await page.setViewportSize({width:1440,height:1000});const requests:string[]=[];page.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith(origin))requests.push(r.url());});
+ const id=randomUUID();const registered=await page.request.post('/api/workspace',{headers:{Origin:origin},data:{action:'register',name:'Проверка на редактор',email:`visual-${id}@example.test`,password:randomUUID()+randomUUID(),ageBand:'18+'}});expect(registered.ok()).toBeTruthy();
+ const create=await page.request.post('/api/websites',{headers:{Origin:origin},data:{action:'create',...facts}});expect(create.ok()).toBeTruthy();const {website}=await create.json();
+ const composed=await page.request.post('/api/websites',{headers:{Origin:origin},data:{action:'compose',id:website.id,revision:website.revision,findPhotos:false}});expect(composed.ok()).toBeTruthy();
+ await page.goto('/?view=websites&site='+website.id);await page.getByRole('button',{name:'Дизайн и промени',exact:true}).click();await page.getByRole('button',{name:'Свободна промяна с AI',exact:true}).click();await expect(page.getByRole('button',{name:'Приложи с AI',exact:true})).toBeDisabled();await expect(page.getByText('Без платен AI API',{exact:true})).toBeVisible();await page.screenshot({path:resolve(root,'local-agent-desktop.png'),fullPage:true,animations:'disabled'});
+ await page.getByRole('button',{name:'Визуален редактор',exact:true}).click();const editor=page.getByRole('region',{name:'Визуален редактор на сайта'});await expect(editor.getByRole('button',{name:'Добави текст',exact:true})).toBeEnabled({timeout:30000});
+ const frame=page.frameLocator('iframe.gjs-frame');await expect(frame.getByRole('heading',{name:'Да върнем велосипеда в движение.',exact:true})).toBeVisible();
+ await expect(frame.locator('.website-page')).toHaveCSS('background-color','rgb(245, 240, 232)');
+ await editor.getByRole('button',{name:'Добави текст',exact:true}).click();await editor.getByRole('textbox',{name:'Текст',exact:true}).fill('Реална промяна във визуалния редактор.');await expect(frame.getByText('Реална промяна във визуалния редактор.',{exact:true})).toBeVisible();
+ await editor.getByRole('button',{name:'Отмени',exact:true}).click();await expect(editor.getByRole('button',{name:'Повтори',exact:true})).toBeEnabled();await editor.getByRole('button',{name:'Повтори',exact:true}).click();await expect(frame.getByText('Реална промяна във визуалния редактор.',{exact:true})).toBeVisible();
+ await editor.getByRole('button',{name:'Добави',exact:true}).click();await editor.getByRole('button',{name:'Добави две колони',exact:true}).click();
+ await editor.getByRole('button',{name:'Запази промените',exact:true}).filter({visible:true}).click();await expect(editor.getByText('Промените са запазени.',{exact:true})).toBeVisible();await expect(frame.locator('.website-page')).toHaveCSS('background-color','rgb(245, 240, 232)');await expect(editor.getByText('Запазен сайт',{exact:true})).toBeVisible();await page.screenshot({path:resolve(root,'visual-editor-desktop.png'),fullPage:true,animations:'disabled'});
+ await page.setViewportSize({width:390,height:844});await expect(editor.getByRole('button',{name:'Преглед за телефон',exact:true})).toHaveAttribute('aria-pressed','true');await expect(frame.locator('header .brand')).toBeVisible();expect(await frame.locator('.site-columns').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(1);await page.evaluate(()=>scrollTo(0,0));expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();await page.screenshot({path:resolve(root,'visual-editor-mobile.png'),fullPage:true,animations:'disabled'});
+ const axe=await new AxeBuilder({page}).include('#main-content').exclude('iframe').analyze();await writeFile(resolve(root,'accessibility.json'),JSON.stringify(axe.violations,null,2));expect(axe.violations).toEqual([]);
+ await editor.getByRole('button',{name:'Към сайта',exact:true}).click();await page.reload();await expect(page.getByText('Сайтът е във визуален режим.',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Визуален редактор',exact:true}).click();await expect(editor.getByRole('button',{name:'Добави текст',exact:true})).toBeEnabled();
+ expect(await page.locator('iframe.gjs-frame').evaluate(el=>el.getBoundingClientRect().height)).toBeGreaterThan(400);
+ await expect(frame.getByText('Реална промяна във визуалния редактор.',{exact:true})).toBeVisible();await editor.getByRole('button',{name:'Към сайта',exact:true}).click();
+ const download=page.waitForEvent('download');await page.getByRole('link',{name:'Изтегли HTML',exact:true}).click();const result=await download;const path=await result.path();expect(path).toBeTruthy();const html=await readFile(path!,'utf8');expect(html).toContain('Реална промяна във визуалния редактор.');expect(html).not.toContain('<script');
+ expect(requests).toEqual([]);await writeFile(resolve(root,'external-browser-requests.json'),JSON.stringify({requests},null,2));
+});

@@ -1,0 +1,72 @@
+name: ai-business-academy
+
+x-runtime: &runtime
+  env_file: .env
+  environment:
+    NODE_ENV: production
+    NEXT_TELEMETRY_DISABLED: "1"
+    APP_ORIGIN: ${APP_ORIGIN:?Set APP_ORIGIN to your exact HTTPS origin in .env}
+    COMMUNITY_DB_PATH: /app/.data/community.db
+    WEBSITE_ASSET_DIR: /app/.data/website-assets
+    COMMUNITY_MEDIA_PATH: /app/.data/workflow-media
+    WEBSITE_AI_PROVIDER: ${WEBSITE_AI_PROVIDER:-none}
+    WEBSITE_IMAGE_SEARCH: ${WEBSITE_IMAGE_SEARCH:-commons}
+    WORKFLOW_MEDIA_DISABLED: "1"
+  volumes:
+    - academy-data:/app/.data
+  init: true
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+services:
+  app:
+    <<: *runtime
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3100:3100"
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  maintenance:
+    <<: *runtime
+    profiles: [maintenance]
+    build:
+      context: .
+      target: maintenance
+    command: [npm, run, db:backup]
+    restart: "no"
+
+  # Optional text-job worker. It shares the app PID namespace because the
+  # existing heartbeat checker verifies that the worker PID is alive.
+  worker:
+    <<: *runtime
+    profiles: [workflow]
+    build:
+      context: .
+      target: maintenance
+    command: [node_modules/.bin/tsx, scripts/workflow-worker.ts]
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+        restart: true
+    pid: service:app
+    init: false
+    stop_grace_period: 120s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  academy-data:

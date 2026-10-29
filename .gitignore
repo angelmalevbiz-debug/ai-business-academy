@@ -1,0 +1,26 @@
+node_modules/
+.next*/
+.data/
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+test-results/
+playwright-report/
+.reference/
+.agents/
+.impeccable/
+__pycache__/
+*.py[cod]
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.sqlite*
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+# Local review evidence can contain member data and browser screenshots.
+docs/*
+!docs/DEPLOY_VPS.md

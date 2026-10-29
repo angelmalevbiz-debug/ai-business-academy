@@ -1,0 +1,183 @@
+.guide {
+  margin: 32px 0;
+  color: #f5f5f7;
+  border: 1px solid #343741;
+  background: #111318;
+  border-radius: 6px;
+  overflow: clip;
+}
+.heading {
+  padding: 24px 24px 20px;
+}
+.heading h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.heading p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b5c4df;
+  margin-top: 7px;
+}
+.flow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0 18px;
+  margin: 0;
+  gap: 22px;
+}
+.flow li {
+  position: relative;
+  min-width: 0;
+}
+.flow button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: 64px;
+  text-align: left;
+  padding: 16px 12px;
+  color: #f5f5f7;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+  transition:
+    background-color 160ms ease-out,
+    border-color 160ms ease-out;
+}
+.flow button:hover {
+  background: #20232b;
+}
+.flow button.selected {
+  background: #251319;
+  border-bottom-color: #ed4053;
+}
+.flow button.selected .phase { color: #ffabb4; }
+.flow button:focus-visible {
+  outline: 3px solid #328bff;
+  outline-offset: 3px;
+}
+.phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #c6cbd4;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.flow strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 650;
+}
+.example {
+  display: block;
+  color: #b5c4df;
+  font-size: 14px;
+  line-height: 1.65;
+  margin-top: 8px;
+}
+.connector {
+  position: absolute;
+  top: 24px;
+  right: -21px;
+  color: #8b929e;
+}
+.explanation {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 24px;
+  margin-top: 4px;
+  border-top: 1px solid #343741;
+  background: #090a0d;
+}
+.explanation > svg {
+  flex-shrink: 0;
+  color: #fff;
+  margin-top: 1px;
+}
+.explanation p {
+  max-width: 68ch;
+  font-size: 15px;
+  line-height: 1.85;
+  animation: explanation-arrival 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.currentExample { min-width: 0; animation: explanation-arrival 180ms ease-out; }
+.currentExample h3 { margin: 0 0 9px; font-size: 18px; line-height: 1.4; }
+.currentExample > p { color: #fff; font-size: 18px; line-height: 1.5; text-wrap: pretty; }
+.currentExample details { margin-top: 16px; }
+.currentExample summary { display: flex; align-items: center; min-height: 44px; color: #c0c4ce; font-size: 12px; cursor: pointer; }
+.currentExample details p { margin-top: 8px; color: #c0c4ce; font-size: 14px; line-height: 1.75; }
+@keyframes explanation-arrival {
+  from {
+    transform: translateY(3px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (max-width: 680px) {
+  .heading {
+    padding: 20px 20px 12px;
+  }
+  .flow {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    padding: 0 14px;
+    gap: 10px;
+  }
+  .flow button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 4px;
+    min-height: 70px;
+  }
+  .phase {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11px;
+  }
+  .phase > svg {
+    width: 22px;
+    height: 22px;
+    color: #c6cbd4;
+  }
+  .flow strong,
+  .example {
+    grid-column: 2;
+    margin-top: 0;
+  }
+  .connector {
+    top: 26px;
+    right: -13px;
+    width: 13px;
+  }
+  .explanation {
+    margin-top: 0;
+    padding: 20px;
+    gap: 10px;
+  }
+  .explanation > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow button {
+    transition: none;
+  }
+  .explanation p,.currentExample {
+    animation: none;
+  }
+}
+
+@media (max-width:680px) { .flow button.selected .phase > svg { color: #ffabb4; } }

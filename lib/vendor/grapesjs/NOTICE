@@ -1,0 +1,10 @@
+GrapesJS core integration
+
+Upstream: https://github.com/GrapesJS/grapesjs
+Installed npm release: grapesjs 0.23.8
+License: BSD-3-Clause; the unmodified license is included in LICENSE.
+
+Academy uses the actual open-source core as a lazily loaded visual HTML/CSS
+editor. It does not use GrapesJS Studio SDK, cloud storage or a paid AI service.
+The wrapper and Bulgarian controls are Academy integration code.
+Generated public sites do not require the editor runtime.

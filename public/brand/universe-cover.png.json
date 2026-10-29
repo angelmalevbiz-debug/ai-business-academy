@@ -1,0 +1,5 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Standalone premium wide cinematic astronomy illustration for a Bulgarian AI academy course about attention, habits and decisions. NO text, letters, logos, UI, buttons, humans or numerals. A dark midnight outer-space view, the curved blue-white luminous horizon of an Earth-like planet across the lower half, a larger shadowed deep-blue planet rising at far right, a fine band of stars and restrained radiant sun over the curved horizon at right center. Rich dimensional blue atmosphere, scientific-imagery inspired but clearly conceptual artwork, NOT claimed NASA photography. LEFT half very dark #090f19 and visually quiet, so semantic white heading can be placed there in code. Match the small Universe panel in supplied UIcomp: premium dramatic blue planetary material, realistic space depth, no neon wireframe, no network diagram. Very wide 2.5:1 image, polished and restrained, not a poster.",
+  "role": "Conceptual illustration for the learning interface; not a claim of outcomes."
+}
