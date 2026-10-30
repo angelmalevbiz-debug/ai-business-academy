@@ -44,3 +44,8 @@ The current entry opens a concrete content, offer or process-plan task in one cl
 ## Current operating presentation — 28 October 2026
 
 The owner-pinned silver-blue reference supersedes the prior flat black/lime entry. Home opens the exact selected task directly. A useful saved-work/example aside, meaningful visual navigation, persistent desktop location and a focused current task guide entry. The optional 3D workflow map supports exploration without becoming a compulsory step. DESIGN.md and current surface briefs record implementation; docs/reference-rebuild-20261028/VERIFICATION.md distinguishes tested local behavior from unfinished provider quality, integrations and full visual fidelity.
+
+
+## Current operating presentation — 30 October 2026
+
+The owner requested a simpler complete design direction and rejected the busy multi-image concept. Within the operating core, the graphite shell, cool paper and restrained red action accent now supersede the earlier mountain/blue-glass treatment. Preserve the established silver-blue logo. Home choices open their exact tasks directly, business stage changes inline, and the spatial team map remains optional. Personal destinations use native disclosure. Generated customer websites keep their own business-specific visual identity. Engagement and beginner effectiveness remain unmeasured; docs/design-review-20261030/VERIFICATION.md records the tested guest scope and remaining work.

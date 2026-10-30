@@ -591,7 +591,7 @@ export function CommunityApp({
   }
 
   return (
-    <div className={`app-shell reference-shell ${journeySurface ? 'journey-shell' : ''} ${view === 'lesson' ? 'journey-reading-shell' : ''} ${view === 'workflow' ? 'workflow-shell' : ''}`} data-surface={view}>
+    <div className={`app-shell reference-shell academy-shell ${journeySurface ? 'journey-shell' : ''} ${view === 'lesson' ? 'journey-reading-shell' : ''} ${view === 'workflow' ? 'workflow-shell' : ''}`} data-surface={view}>
       <a className="skip-link" href="#main-content">
         Към съдържанието
       </a>
@@ -628,12 +628,10 @@ export function CommunityApp({
           </span>
         </div>
         <nav>
-          {navigation.map((item, index) => {
+          {navigation.filter(item=>!['universe','daily','path','tools'].includes(item.view)).map((item) => {
             const active = view === item.view || (view === "lesson" && item.view === lessonOrigin);
-            const newGroup = index === 0 || navigation[index - 1].group !== item.group;
             return (
               <div className="nav-entry" key={item.view}>
-                {newGroup && <span className="nav-group-label">{item.group}</span>}
                 <Link
                   href={`/?view=${item.view}`}
                   prefetch={false}
@@ -654,6 +652,32 @@ export function CommunityApp({
               </div>
             );
           })}
+<details className="nav-more" key={`more:${view}`} open={["universe","daily","path","tools"].includes(view)||undefined}><summary>За теб<CaretDown size={15} aria-hidden="true"/></summary><div>
+          {navigation.filter(item=>['universe','daily','path','tools'].includes(item.view)).map((item) => {
+            const active = view === item.view || (view === "lesson" && item.view === lessonOrigin);
+            return (
+              <div className="nav-entry" key={item.view}>
+                <Link
+                  href={`/?view=${item.view}`}
+                  prefetch={false}
+                  onPointerEnter={() => preloadView(item.view)}
+                  onFocus={() => preloadView(item.view)}
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                    e.preventDefault();
+                    navigate(item.view);
+                  }}
+                  className={`nav-item ${active ? "active" : ""}`}
+                  aria-label={item.label}
+                  aria-current={active ? "page" : undefined}
+                >
+                  <item.icon size={21} weight={active ? "fill" : "regular"} />
+                  <span>{item.label}</span>
+                </Link>
+              </div>
+            );
+          })}
+</div></details>
         </nav>
         <div className="sidebar-divider" />
         <Link

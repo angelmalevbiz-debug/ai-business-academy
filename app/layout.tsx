@@ -5,6 +5,7 @@ import './globals.css';
 import './evolution.css';
 import './product-review.css';
 import './reference.css';
+import './premium.css';
 
 export const metadata: Metadata = {
   title: `${brand.name} Community | AI обучение и практика`,

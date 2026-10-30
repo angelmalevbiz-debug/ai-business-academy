@@ -1,8 +1,8 @@
-.page{--day-white:#f1f5fc;--day-ink:#14243d;--day-muted:#50647e;--day-accent:#2169d9;--day-success:#d9ff84;color:#f1f5ff;max-width:1320px;margin-inline:auto}
+.page{--day-white:#f3f4f6;--day-ink:#20242c;--day-muted:#50647e;--day-accent:#cf352c;--day-success:#d9ff84;color:#f7f7f8;max-width:1320px;margin-inline:auto}
 .page *{box-sizing:border-box}
 .header{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:0 0 30px}
 .header h1{font-size:clamp(34px,3.7vw,51px);font-weight:750;line-height:1.12;letter-spacing:-.035em;text-wrap:balance;margin:0}
-.header p{font-size:14px;line-height:1.65;color:#c1cfe4;margin:12px 0 0}
+.header p{font-size:14px;line-height:1.65;color:#bbc2cd;margin:12px 0 0}
 .date{display:flex;flex-direction:column;gap:5px;text-align:right;flex-shrink:0;padding-block:8px}
 .date>span{font-size:12px;color:#b8cbe7}
 .date strong{font-size:16px;font-weight:650;line-height:1.4}
@@ -22,7 +22,7 @@
 .budget svg{display:block;width:100%;height:100%}
 .budgetHand{stroke:#f04462}
 .budget>span:not(.successCaption){position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:2px}
-.budget strong{font-size:clamp(54px,5.3vw,76px);font-weight:650;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.04em;color:#14243d}
+.budget strong{font-size:clamp(54px,5.3vw,76px);font-weight:650;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.04em;color:#20242c}
 .budget small{font-size:12px;margin-top:7px;color:#50647e}
 .budget[data-done=true]{background:var(--day-success);color:#28431d;border-radius:50%}
 .budget[data-done=true] .budgetHand{stroke:#28431d}
@@ -42,7 +42,7 @@
 .weekPanel{padding:25px 22px;background:#15263bc9;border:1px solid #61799680;border-radius:16px;min-width:0}
 .weekHeading{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .weekHeading h2{font-size:16px;line-height:1.4;font-weight:650;margin:0}
-.weekHeading>span{display:flex;align-items:baseline;gap:4px;font-size:24px;font-weight:700;line-height:1.2;color:#f1f5fc;font-variant-numeric:tabular-nums}
+.weekHeading>span{display:flex;align-items:baseline;gap:4px;font-size:24px;font-weight:700;line-height:1.2;color:#f3f4f6;font-variant-numeric:tabular-nums}
 .weekHeading small{font-size:12px;font-weight:450;color:#bdcee6}
 .dayStrip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;list-style:none;margin:27px 0 16px;padding:0}
 .dayStrip>li{display:flex;flex-direction:column;gap:10px;align-items:center;min-width:0}
@@ -89,8 +89,8 @@
 .duration label{position:relative}
 .duration input{position:absolute;opacity:0;width:1px;height:1px}
 .duration span{display:flex;align-items:center;justify-content:center;min-height:48px;min-width:85px;padding:10px 15px;border:1px solid #9cafc9;border-radius:8px;font-size:14px;cursor:pointer;font-variant-numeric:tabular-nums}
-.duration input:checked+span{background:#2169d9;border-color:#2169d9;color:#fff}
-.duration input:focus-visible+span{outline:3px solid #2169d9;outline-offset:4px}
+.duration input:checked+span{background:#cf352c;border-color:#cf352c;color:#fff}
+.duration input:focus-visible+span{outline:3px solid #cf352c;outline-offset:4px}
 .options{border-block:1px solid #b7c7dc;padding-block:5px;margin-bottom:25px}
 .options label{margin-block:20px}
 .save{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -114,8 +114,8 @@
 .hints>small{font-size:11px}
 .page :is(button,a,summary,textarea,select,input):focus-visible{outline:3px solid #92c4ff;outline-offset:4px}
 .startHero :is(button,a,summary):focus-visible,.focus :is(button,a,summary,textarea):focus-visible,.editor :is(button,a,summary,textarea,select):focus-visible{outline-color:#1856bd}
-.page ::selection{background:#b2d2ff;color:#14243d}
-.page :is(textarea,input){caret-color:#2169d9}
+.page ::selection{background:#b2d2ff;color:#20242c}
+.page :is(textarea,input){caret-color:#cf352c}
 @media(prefers-reduced-motion:no-preference){
  .choices>button>svg:last-child{transition:transform 160ms cubic-bezier(.16,1,.3,1)}
  .choices>button:hover>svg:last-child{transform:translateX(4px)}
@@ -132,3 +132,6 @@
 @media(max-width:600px){.header{margin-bottom:23px;gap:15px;align-items:start}.header h1{font-size:34px;max-width:10ch}.header p{font-size:13px;max-width:27ch}.date{padding-top:4px;gap:4px}.date>span{font-size:10px}.date strong{font-size:12px;max-width:9ch}.startHero{padding:25px 22px;grid-template-columns:minmax(0,1fr) 104px;gap:13px;min-height:255px;align-items:start}.startIntro h2{font-size:29px;line-height:1.17}.startIntro p{font-size:12px;margin-bottom:22px;max-width:22ch}.startHero .budget{margin-top:7px}.budget strong{font-size:43px}.budget small{font-size:10px;margin-top:4px}.startIntro .primary{font-size:12px;padding:12px 14px;min-height:50px;gap:14px;white-space:nowrap}.startIntro{display:contents}.startIntro h2,.startIntro p{grid-column:1}.startIntro h2{grid-row:1;margin-bottom:0}.startIntro p{grid-row:2;margin:0}.startIntro>.primary{grid-column:1/-1;grid-row:3;margin-top:9px;justify-content:space-between;width:100%}.startHero>.budget{grid-column:2;grid-row:1/3;align-self:center}.choices{gap:10px;margin-top:12px;grid-template-columns:1fr}.choices>button{min-height:85px;padding:18px;gap:15px}.choices strong{font-size:16px}.choices small{font-size:11px;margin-top:7px}.choices .own{min-height:48px;padding:5px 4px;font-size:13px}.weekPanel{padding:22px}.weekHeading h2{font-size:17px}.dayStrip{gap:5px}.dayMark{width:32px;height:37px}.focus,.editor{padding:24px 22px}.focusTop{margin-bottom:24px;gap:10px}.focusTop>span,.focusTop button{font-size:11px;gap:6px}.focusTop button{padding:9px 10px}.focusBody{grid-template-columns:minmax(0,1fr);gap:23px}.focusBody>.budget{width:130px;grid-row:1;justify-self:center}.focusBody>.budget strong{font-size:55px}.focus h2{font-size:29px;margin-bottom:23px}.focusBody>.budget .successCaption{bottom:20px;font-size:10px}.focusBody .log>.primary{width:100%;justify-content:space-between}.primary{font-size:13px}.complete strong{font-size:14px}.complete p{font-size:12px}.editor h2{font-size:25px}.editor>header{align-items:start}.save{gap:13px}.save>.primary{width:100%}.duration{gap:8px}.duration span{min-width:73px;padding-inline:12px}.more{gap:18px;margin:20px 0}.more button{font-size:12px}.example>summary,.history>summary{font-size:11px}.week{gap:32px}.week span{font-size:12px}}
 @media(max-width:360px){.header h1{font-size:30px}.date strong{font-size:11px}.startHero{padding:22px 19px;grid-template-columns:minmax(0,1fr) 90px}.startIntro h2{font-size:27px}.budget strong{font-size:38px}.choices strong{font-size:14px}.focus,.editor,.weekPanel{padding-inline:19px}.focusTop>span{max-width:130px}.duration{gap:6px}.duration span{min-width:67px}.more{grid-template-columns:1fr;gap:0}}
 @media(prefers-reduced-motion:reduce){.page *{animation:none!important;transition:none!important;scroll-behavior:auto!important}.successTick{stroke-dashoffset:0}}
+
+.page{--day-white:#f3f4f6;--day-ink:#20242c;--day-muted:#58667b;--day-accent:#cf352c}.startHero,.focus,.editor{box-shadow:none;border-radius:14px}.startIntro h2{font-weight:680}.weekPanel{background:#1c2129;border-color:#4a566a;border-radius:13px;box-shadow:none}.choices>button{background:#20252d;border-color:#4b586d;border-radius:10px;box-shadow:none}.choices .own{background:none;border:0}.primary{border-radius:8px;background:#cf352c;color:#fff;box-shadow:none}.primary:hover:not(:disabled){background:#b62d25}.dayStrip>li[data-today=true] .dayMark{outline-color:#d9847b;background:#34333b}.dayStrip>li[data-done=true] .dayMark{background:#dceec4;color:#28431d;border-color:#dceec4}.weekResult>span{background:#303a49}.weekResult[data-done=true]>span{background:#dceec4;color:#28431d}.budget{color:#75869e}.budget strong{color:#20242c}.startHero .profileNote{font-size:11px;line-height:1.6;color:#58667b;margin-top:12px;max-width:32ch}.date:after{background:#cf352c}
+@media(max-width:600px){.startHero,.focus,.editor{border-radius:12px}.startHero .profileNote{grid-column:1/-1;grid-row:4;margin:0;max-width:none}.weekPanel{border-radius:12px}.choices>button{border-radius:9px}.header h1{font-weight:680}}

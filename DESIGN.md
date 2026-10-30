@@ -1,119 +1,205 @@
 ---
 name: AI Business Academy
-description: One clear action, one visible result.
+description: One clear action, one inspectable result.
 colors:
-  shell-ground: "#0a1120"
-  entry-ground: "#0d192c"
-  work-paper: "#f1f5fc"
-  paper-secondary: "#dbe4f2"
-  work-ink: "#14243d"
-  light-ink: "#f1f5ff"
-  secondary-ink: "#c1cfe4"
-  structure: "#4d607d"
-  action-blue: "#2169d9"
-  activity-crimson: "#ff536b"
-  academy-blue: "#4d9aff"
+  action-red: "#cf352c"
+  action-red-hover: "#b62d25"
+  shell-ground: "#111315"
+  shell-surface: "#20252d"
+  shell-control: "#252931"
+  work-paper: "#f3f4f6"
+  field-paper: "#ffffff"
+  work-ink: "#20242c"
+  entry-ink: "#15171b"
+  light-ink: "#f7f7f8"
+  secondary-ink: "#bcc6d7"
+  paper-secondary-ink: "#626b79"
+  shell-line: "#343941"
+  paper-line: "#dadddf"
+  focus-blue: "#7aa9e8"
+  success-paper: "#dceec4"
+  success-ink: "#28431d"
 typography:
   display:
     fontFamily: "Manrope Variable, Manrope, sans-serif"
-    fontSize: "clamp(34px,3.6vw,52px)"
-    fontWeight: 700
-    lineHeight: 1.06
+    fontSize: "clamp(34px,3.9vw,54px)"
+    fontWeight: 720
+    lineHeight: 1.12
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Manrope Variable, Manrope, sans-serif"
-    fontSize: "clamp(34px,4.3vw,57px)"
-    fontWeight: 750
-    lineHeight: 1.06
-    letterSpacing: "-0.035em"
+    fontSize: "clamp(28px,3vw,40px)"
+    fontWeight: 680
+    lineHeight: 1.16
+    letterSpacing: "-0.03em"
   title:
     fontFamily: "Manrope Variable, Manrope, sans-serif"
-    fontSize: "24px"
-    fontWeight: 650
-    lineHeight: 1.4
-    letterSpacing: "-0.025em"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "Manrope Variable, Manrope, sans-serif"
     fontSize: "14px"
-    fontWeight: 400
-    lineHeight: 1.65
+    lineHeight: 1.5
   label:
     fontFamily: "Manrope Variable, Manrope, sans-serif"
     fontSize: "13px"
     fontWeight: 600
-    lineHeight: 1.5
 rounded:
-  field: "10px"
-  control: "12px"
-  work-surface: "18px"
-  panel: "18px"
-  pill: "100px"
+  field: "3px"
+  control: "8px"
+  shell-control: "9px"
+  compact-panel: "12px"
+  panel: "14px"
+  tag: "20px"
 spacing:
   compact: "8px"
   control-gap: "12px"
   group: "16px"
   section: "24px"
-  work-padding: "30px"
+  work-padding: "34px"
+  desktop-gutter: "38px"
 components:
   button-primary:
-    backgroundColor: "{colors.action-blue}"
-    textColor: "{colors.light-ink}"
-    rounded: "{rounded.control}"
-    padding: "14px 20px"
-    height: "54px"
+    backgroundColor: "{colors.action-red}"
+    textColor: "{colors.field-paper}"
+    rounded: "{rounded.shell-control}"
+    padding: "12px 17px"
+  button-primary-hover:
+    backgroundColor: "{colors.action-red-hover}"
   button-secondary:
-    backgroundColor: "{colors.work-ink}"
-    textColor: "{colors.light-ink}"
-    rounded: "{rounded.control}"
-    padding: "12px 19px"
+    backgroundColor: "{colors.shell-control}"
+    textColor: "#f0f2f6"
+    rounded: "{rounded.shell-control}"
+    padding: "12px 17px"
+  task-field:
+    backgroundColor: "{colors.field-paper}"
+    textColor: "{colors.work-ink}"
+    rounded: "{rounded.field}"
+    padding: "12px 13px"
   work-surface:
     backgroundColor: "{colors.work-paper}"
     textColor: "{colors.work-ink}"
-    rounded: "{rounded.work-surface}"
-    padding: "30px"
+    rounded: "{rounded.panel}"
+    padding: "31px 34px 24px"
+  nav-active:
+    backgroundColor: "{colors.work-paper}"
+    textColor: "#1a1d24"
+    rounded: "{rounded.shell-control}"
+    padding: "12px 13px"
 ---
 # Design System: AI Business Academy
 
-## Visual authority
+## Overview
 
-The owner's supplied silver-blue Academy reference is the current authority. It combines a twilight mountain atmosphere, silver-blue Academy identity, translucent dark surfaces, clear paper-white working areas and restrained crimson emphasis. The previous flat black/lime entry is archived in docs/reference-rebuild-20261028/DESIGN.before.md. Current verification: docs/reference-rebuild-20261028/VERIFICATION.md.
+**Creative North Star: "A visible purpose, a direct action, an inspectable result."**
 
-**Creative North Star: a visible purpose, a direct action, an inspectable result.** The interface remains adult and calm; visual richness must explain a destination, relationship or state. No fabricated activity, testimonials, progress or completed AI work.
+The operating product is a clear, adult workspace: a graphite shell establishes location, cool white paper makes the current work readable, and restrained red identifies an action or active detail. Manrope and the established silver-blue Academy logo carry the identity. Preserve that logo as an asset; do not redraw or recolor it to match the action accent.
 
-## Color and materials
+This direction supersedes the earlier blue-glass and mountain treatment within the operating core. The optional spatial map, immersive learning surfaces and independent editing modules retain their own functional needs. Designs generated for a customer's website or brand establish their own visual identity; the Academy shell palette does not constrain those deliverables.
 
-Deep blue-black shell #0a1120, atmospheric entry #0d192c, paper #f1f5fc, paper-secondary #dbe4f2, dark ink #14243d and white ink #f1f5ff. Primary action #2169d9 uses white text. Academy blue #4d9aff supports selection; crimson #ff536b is a small active/editing accent. Secondary ink on dark #c1cfe4. Borders define translucent panels; shadows use a soft downward offset. Blur belongs to the header and bounded route arrivals, never a permanent full-root effect.
+**Key Characteristics:**
+- Clear location and a visible next action.
+- Quiet graphite framing around readable working paper.
+- Small red emphasis, with silver-blue identity and visible keyboard focus.
+- Bounded, interruptible motion that respects reduced-motion preferences.
 
-**Action contrast:** dark ink on white paper, white on blue primary actions. Transparent surfaces must be checked against the actual backdrop. Never infer accessibility from a token alone.
+## Colors
 
-## Typography and language
+The palette is neutral and cool, with a warm red action accent.
 
-Self-hosted Manrope Variable supports Bulgarian. Main purpose questions use 34–52px on desktop and 30–34px on phone. Working titles and essential controls stay larger than utility details. Tracking is no tighter than -.035em. Headlines name the user's purpose; controls state the actual action. One short sentence introduces a section; generated documents retain useful detail and readable measure.
+### Primary
+- **Action Red:** primary actions, selected entry details and small directional accents. Use its deeper hover variant for the same action.
 
-**Literal labels:** visible navigation and selected location must agree. Saving a task, generating content, approving a draft and publishing externally are separate states. A process plan must not claim an installed automation.
+### Neutral
+- **Graphite Ground:** the operating shell and persistent navigation.
+- **Graphite Surface / Control:** supporting cards and secondary controls on dark surfaces.
+- **Cool Work Paper / Field Paper:** the home canvas, current work, featured content and writable fields.
+- **Work Ink / Entry Ink:** readable content on paper.
+- **Light Ink / Secondary Ink:** primary and supporting text on graphite.
+- **Paper Secondary Ink:** supporting text on cool paper; check the actual surface before reusing it.
+- **Shell Line / Paper Line:** restrained dividers and structural edges.
 
-## Composition and navigation
+### Functional color
+- **Focus Blue:** keyboard focus, separate from the action accent.
+- **Success Paper / Success Ink:** confirmed completion states, separate from selection or an animation.
 
-The desktop sidebar remains visible for operating surfaces. At 1100px and below it becomes a drawer with a clear trigger, Escape dismissal and focus containment. Learning path and interactive examples retain their immersive shell. Search stays above route animation and remains usable on phones.
+**The Action Rule.** Red identifies a useful action or state; it does not flood the shell, replace the logo, or stand in for real progress.
 
-Home has four direct destination buttons. Click immediately opens the relevant exact task; no intermediate selection/confirmation. Each has a distinct small illustration: camera, proposal/chess piece, connected process, focus dial. The illustrations are navigation cues, not results or metrics. A light aside resumes the actual user's saved work or opens a real first example. Do not repeat the same example call to action in a second panel.
+## Typography
 
-The work area exposes Tasks, Ads, Video and Team with literal subtitles. A selected task takes precedence over the optional map. Actual saved history, contextual brand facts and specialist areas remain reachable without loading every tool into the first view. Exact task selection survives reload and registration.
+**Display and Body Font:** self-hosted Manrope Variable, with Manrope and sans-serif fallbacks. Keep Bulgarian text fully supported.
 
-Examples use one wide primary visual relationship and two compact examples. Native message/decision diagrams explain real example content and remain interactive. Community uses an actual featured post, a real stream and thread; empty states invite a genuine first contribution. Images never impersonate members.
+The type is direct and readable. Use weight and space to distinguish hierarchy; avoid decorative casing and excessive emphasis. The frontmatter records the entry display, working headline, destination title, body and label roles. Compact metadata may be smaller, but essential actions and working copy must remain legible.
 
-## Depth and motion
+Entry display text is balanced and tightly tracked. Working headings are calmer and lighter. Supporting paragraphs usually stay within a readable measure (about 65ch); generated documents may keep the detail their purpose requires. Use tabular numerals for timers and actual counts.
 
-Use the optimized atmosphere plate once in the shell. Four transparent entry illustrations total about 129KB in source WebP assets. The optional workflow scene uses true perspective, baked studio reflection, instanced static geometry, actual saved-artifact boards, clear overlays and camera transitions. In-canvas labels yield to larger horizontal role controls on phones. A selected node is navigation, not evidence of execution. Actual job status remains separate.
+**The Literal Label Rule.** Navigation names the visible destination. Controls name their actual action. Saving, generating, reviewing, approving and publishing remain visibly distinct states.
 
-Routine transitions last about 170–300ms. The route's brief defocus-to-sharp arrival is removed with reduced motion. Camera movement is bounded and interruptible; it stops after settling. Background/offscreen maps do not animate. Reflection is prepared once, not rendered every frame. Text, controls and images remain usable without entrance animation.
+## Layout
 
-## Controls and supporting surfaces
+The operating shell uses a persistent desktop sidebar (214px), a top bar (72px), and a content area with generous outer space. Below the drawer breakpoint (1100px), remove the sidebar offset and use the accessible navigation drawer (250px). Preserve its clear trigger, Escape dismissal and focus containment. At the compact breakpoint (760px), the top bar is shorter (66px), content gutters narrow, and search remains reachable.
 
-Primary actions use 50–56px height; utility targets at least 44px in the reviewed surfaces. Corners approximately 12–18px follow the supplied reference; small filters may be rounded. Paper inputs use dark text, explicit labels and concrete examples. Hover, focus, disabled, progress, failure, empty and populated states remain required.
+Home uses a centered content width (1140px). Working and supporting surfaces can use their own content measure instead of forcing one universal grid. Related controls stay together; supporting destinations use disclosure rather than competing with the first useful choice. Layouts collapse into a readable single column on phones, without horizontal page overflow.
 
-Admin is protected by server role checks. Its status desk displays real provider/worker/media availability and real review counts. Generated admin mockup example identities and metrics never seed application data. Profile, daily plan, focus and tools have supporting style refinements; their full structural match to their individual concepts remains partial.
+## Elevation & Depth
 
-## Verification and limits
+The operating core is flat at rest. Contrast between graphite, cool paper and quiet dividers establishes hierarchy. Do not restore the earlier blue-glass gradients, atmospheric backdrop or pervasive glow within this core.
 
-Reviewed widths: 1440, 768, 390 and 320px. Axe checks and overflow checks are evidence for those rendered states, not a complete accessibility certification. Scoped automated journeys cover preserved functionality; actual local admin tests cover model generation, persistence/approval and FFmpeg output. Provider copy quality, external publishing/integrations, all historical requirements, real-user learning/retention and physical-device performance remain separate verification work. Do not call a generated mockup a finished interface or universal lag-free performance.
+Use soft shadows only where they explain a temporary layer or a preview artifact. Entry paper previews have a restrained lift; menus and search results separate from the page beneath. Task sheets, regular cards and primary buttons do not need ambient shadows.
+
+The optional 3D workflow map keeps true perspective, prepared reflections and independent camera movement. Load it on request; pause it when hidden or offscreen and stop camera movement after settling. Selecting a node is navigation, not evidence that a job ran.
+
+**The Bounded Motion Rule.** Arrival reveals finish quickly and leave text and controls usable. The shell reveal lasts (260ms), entry previews (240ms), and ordinary color changes (160ms). Remove these arrivals and nonessential transitions for reduced motion. Do not add continuous WebGL or background animation to entry.
+
+## Shapes
+
+Use gently curved, compact controls and quiet paper panels. Controls generally use the control and shell-control radii; working panels use the panel radius and become slightly tighter on phones. Task fields retain their sharper field radius; daily-plan fields can use the control radius. Roundness communicates the component's role rather than making every surface a pill.
+
+Straight dividers organize entry choices and saved work. Reserve circles for avatars, focus dials and genuine status marks. Do not frame every paragraph or action as a separate card.
+
+## Components
+
+### Buttons
+Primary buttons are solid Action Red with white text and a deeper red hover. Standard shell buttons have a minimum height (46px); prominent working actions may be taller. Secondary buttons use a restrained dark fill or clear border appropriate to their background. Keep a visible focus outline (3px) with an offset (4px); never rely on color change alone.
+
+Disabled, loading, failure and completion states must communicate the actual operation. Utility controls retain usable targets; do not shrink an essential action into metadata.
+
+### Inputs / Fields
+Fields use explicit labels, concrete examples and readable text. Paper task fields use a white fill, dark ink and a clear border. The modal and dark conversation editor use a distinct dark field treatment with sufficient contrast. Preserve editing, approval, save and publish behavior inside each module rather than merging those operations into a single decorative control.
+
+### Navigation
+The graphite sidebar exposes the core destinations. The selected item uses cool paper with dark text and a small red icon accent. Personal destinations use a native disclosure. The mobile drawer must keep the current location clear and the account row readable.
+
+Within workflow, keep the primary task destinations visible. Saved project history is labeled **Моите задачи**. Additional mobile destinations are consolidated under **Още**; show project context and new-task header controls when an active project or role makes them relevant. The optional map stays reachable without becoming a prerequisite.
+
+### Cards / Containers
+Working paper is for the current task and readable results. Dark supporting cards remain quiet, with modest radius and minimal borders. Featured community content can use paper to establish priority; real participants, posts and replies supply the content. Do not illustrate people with fabricated member imagery.
+
+### Chips / Status
+Category tags are compact, outlined labels. Selected filters use paper and dark text. A tag, counter or success mark must represent a real category, selection or saved state; never invent activity or achievement to populate a design.
+
+### Goal Entry
+Each home goal is a direct button that immediately opens its exact destination. A transient preview explains that goal with one coherent artifact or relationship; avoid a collage of simultaneous concepts. On phones, keep the goal readable and the compact preview separate from its text. Miniature details are decorative; the visible labels explain the action without relying on tiny preview text. A saved-work row or a real example remains secondary and useful.
+
+### Task Workspace
+The current task is the working surface. Offer spatial exploration explicitly instead of loading the map at entry. Business stage changes inline. Preserve exact task selection across reload and registration, and keep real saved artifacts and brand context reachable through their existing modules.
+
+## Do's and Don'ts
+
+### Do:
+- **Do** preserve the established silver-blue Academy logo.
+- **Do** use graphite framing, cool paper and restrained red within the operating core.
+- **Do** expose a direct next action and keep saved work reachable.
+- **Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.
+- **Do** preserve the optional map and each editing module's independent behavior.
+- **Do** give generated customer websites and brands their own appropriate visual identity.
+
+### Don't:
+- **Don't** restore blue glass, mountain atmosphere, neon noise or a cluttered collage in the operating core.
+- **Don't** require the 3D map or an extra confirmation before the selected entry task.
+- **Don't** obscure navigation, overload the first view, or duplicate supporting calls to action.
+- **Don't** use invented activity, testimonials, progress or completed AI work as visual content.
+- **Don't** equate a timer, preview, animation or selected map node with verified work, mastery or measured retention.
+

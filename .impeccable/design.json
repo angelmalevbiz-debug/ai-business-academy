@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T19:55:43.990Z",
+  "title": "Design System: AI Business Academy",
+  "extensions": {
+    "colorMeta": {
+      "action-red": {
+        "role": "primary",
+        "displayName": "Action Red",
+        "tonalRamp": [
+          "oklch(15.0% 0.1922 28.3)",
+          "oklch(26.5% 0.1922 28.3)",
+          "oklch(38.0% 0.1922 28.3)",
+          "oklch(49.5% 0.1922 28.3)",
+          "oklch(61.0% 0.1922 28.3)",
+          "oklch(72.5% 0.1922 28.3)",
+          "oklch(84.0% 0.1922 28.3)",
+          "oklch(95.0% 0.1922 28.3)"
+        ]
+      },
+      "action-red-hover": {
+        "role": "primary",
+        "displayName": "Deep Action Red",
+        "tonalRamp": [
+          "oklch(15.0% 0.1750 28.4)",
+          "oklch(26.5% 0.1750 28.4)",
+          "oklch(38.0% 0.1750 28.4)",
+          "oklch(49.5% 0.1750 28.4)",
+          "oklch(61.0% 0.1750 28.4)",
+          "oklch(72.5% 0.1750 28.4)",
+          "oklch(84.0% 0.1750 28.4)",
+          "oklch(95.0% 0.1750 28.4)"
+        ]
+      },
+      "shell-ground": {
+        "role": "neutral",
+        "displayName": "Graphite Ground",
+        "tonalRamp": [
+          "oklch(15.0% 0.0052 248.1)",
+          "oklch(26.5% 0.0052 248.1)",
+          "oklch(38.0% 0.0052 248.1)",
+          "oklch(49.5% 0.0052 248.1)",
+          "oklch(61.0% 0.0052 248.1)",
+          "oklch(72.5% 0.0052 248.1)",
+          "oklch(84.0% 0.0052 248.1)",
+          "oklch(95.0% 0.0052 248.1)"
+        ]
+      },
+      "shell-surface": {
+        "role": "neutral",
+        "displayName": "Graphite Surface",
+        "tonalRamp": [
+          "oklch(15.0% 0.0167 259.8)",
+          "oklch(26.5% 0.0167 259.8)",
+          "oklch(38.0% 0.0167 259.8)",
+          "oklch(49.5% 0.0167 259.8)",
+          "oklch(61.0% 0.0167 259.8)",
+          "oklch(72.5% 0.0167 259.8)",
+          "oklch(84.0% 0.0167 259.8)",
+          "oklch(95.0% 0.0167 259.8)"
+        ]
+      },
+      "shell-control": {
+        "role": "neutral",
+        "displayName": "Graphite Control",
+        "tonalRamp": [
+          "oklch(15.0% 0.0158 264.3)",
+          "oklch(26.5% 0.0158 264.3)",
+          "oklch(38.0% 0.0158 264.3)",
+          "oklch(49.5% 0.0158 264.3)",
+          "oklch(61.0% 0.0158 264.3)",
+          "oklch(72.5% 0.0158 264.3)",
+          "oklch(84.0% 0.0158 264.3)",
+          "oklch(95.0% 0.0158 264.3)"
+        ]
+      },
+      "work-paper": {
+        "role": "neutral",
+        "displayName": "Cool Work Paper",
+        "tonalRamp": [
+          "oklch(15.0% 0.0029 264.5)",
+          "oklch(26.5% 0.0029 264.5)",
+          "oklch(38.0% 0.0029 264.5)",
+          "oklch(49.5% 0.0029 264.5)",
+          "oklch(61.0% 0.0029 264.5)",
+          "oklch(72.5% 0.0029 264.5)",
+          "oklch(84.0% 0.0029 264.5)",
+          "oklch(95.0% 0.0029 264.5)"
+        ]
+      },
+      "field-paper": {
+        "role": "neutral",
+        "displayName": "Field Paper",
+        "tonalRamp": [
+          "oklch(15.0% 0.0000 89.9)",
+          "oklch(26.5% 0.0000 89.9)",
+          "oklch(38.0% 0.0000 89.9)",
+          "oklch(49.5% 0.0000 89.9)",
+          "oklch(61.0% 0.0000 89.9)",
+          "oklch(72.5% 0.0000 89.9)",
+          "oklch(84.0% 0.0000 89.9)",
+          "oklch(95.0% 0.0000 89.9)"
+        ]
+      },
+      "work-ink": {
+        "role": "neutral",
+        "displayName": "Work Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0162 264.2)",
+          "oklch(26.5% 0.0162 264.2)",
+          "oklch(38.0% 0.0162 264.2)",
+          "oklch(49.5% 0.0162 264.2)",
+          "oklch(61.0% 0.0162 264.2)",
+          "oklch(72.5% 0.0162 264.2)",
+          "oklch(84.0% 0.0162 264.2)",
+          "oklch(95.0% 0.0162 264.2)"
+        ]
+      },
+      "entry-ink": {
+        "role": "neutral",
+        "displayName": "Entry Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0086 264.4)",
+          "oklch(26.5% 0.0086 264.4)",
+          "oklch(38.0% 0.0086 264.4)",
+          "oklch(49.5% 0.0086 264.4)",
+          "oklch(61.0% 0.0086 264.4)",
+          "oklch(72.5% 0.0086 264.4)",
+          "oklch(84.0% 0.0086 264.4)",
+          "oklch(95.0% 0.0086 264.4)"
+        ]
+      },
+      "light-ink": {
+        "role": "neutral",
+        "displayName": "Light Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0013 286.4)",
+          "oklch(26.5% 0.0013 286.4)",
+          "oklch(38.0% 0.0013 286.4)",
+          "oklch(49.5% 0.0013 286.4)",
+          "oklch(61.0% 0.0013 286.4)",
+          "oklch(72.5% 0.0013 286.4)",
+          "oklch(84.0% 0.0013 286.4)",
+          "oklch(95.0% 0.0013 286.4)"
+        ]
+      },
+      "secondary-ink": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0263 261.1)",
+          "oklch(26.5% 0.0263 261.1)",
+          "oklch(38.0% 0.0263 261.1)",
+          "oklch(49.5% 0.0263 261.1)",
+          "oklch(61.0% 0.0263 261.1)",
+          "oklch(72.5% 0.0263 261.1)",
+          "oklch(84.0% 0.0263 261.1)",
+          "oklch(95.0% 0.0263 261.1)"
+        ]
+      },
+      "paper-secondary-ink": {
+        "role": "neutral",
+        "displayName": "Paper Secondary Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0247 259.2)",
+          "oklch(26.5% 0.0247 259.2)",
+          "oklch(38.0% 0.0247 259.2)",
+          "oklch(49.5% 0.0247 259.2)",
+          "oklch(61.0% 0.0247 259.2)",
+          "oklch(72.5% 0.0247 259.2)",
+          "oklch(84.0% 0.0247 259.2)",
+          "oklch(95.0% 0.0247 259.2)"
+        ]
+      },
+      "shell-line": {
+        "role": "neutral",
+        "displayName": "Shell Line",
+        "tonalRamp": [
+          "oklch(15.0% 0.0156 259.8)",
+          "oklch(26.5% 0.0156 259.8)",
+          "oklch(38.0% 0.0156 259.8)",
+          "oklch(49.5% 0.0156 259.8)",
+          "oklch(61.0% 0.0156 259.8)",
+          "oklch(72.5% 0.0156 259.8)",
+          "oklch(84.0% 0.0156 259.8)",
+          "oklch(95.0% 0.0156 259.8)"
+        ]
+      },
+      "paper-line": {
+        "role": "neutral",
+        "displayName": "Paper Line",
+        "tonalRamp": [
+          "oklch(15.0% 0.0043 236.5)",
+          "oklch(26.5% 0.0043 236.5)",
+          "oklch(38.0% 0.0043 236.5)",
+          "oklch(49.5% 0.0043 236.5)",
+          "oklch(61.0% 0.0043 236.5)",
+          "oklch(72.5% 0.0043 236.5)",
+          "oklch(84.0% 0.0043 236.5)",
+          "oklch(95.0% 0.0043 236.5)"
+        ]
+      },
+      "focus-blue": {
+        "role": "functional",
+        "displayName": "Focus Blue",
+        "tonalRamp": [
+          "oklch(15.0% 0.1053 256.0)",
+          "oklch(26.5% 0.1053 256.0)",
+          "oklch(38.0% 0.1053 256.0)",
+          "oklch(49.5% 0.1053 256.0)",
+          "oklch(61.0% 0.1053 256.0)",
+          "oklch(72.5% 0.1053 256.0)",
+          "oklch(84.0% 0.1053 256.0)",
+          "oklch(95.0% 0.1053 256.0)"
+        ]
+      },
+      "success-paper": {
+        "role": "functional",
+        "displayName": "Success Paper",
+        "tonalRamp": [
+          "oklch(15.0% 0.0587 126.4)",
+          "oklch(26.5% 0.0587 126.4)",
+          "oklch(38.0% 0.0587 126.4)",
+          "oklch(49.5% 0.0587 126.4)",
+          "oklch(61.0% 0.0587 126.4)",
+          "oklch(72.5% 0.0587 126.4)",
+          "oklch(84.0% 0.0587 126.4)",
+          "oklch(95.0% 0.0587 126.4)"
+        ]
+      },
+      "success-ink": {
+        "role": "functional",
+        "displayName": "Success Ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.0700 137.4)",
+          "oklch(26.5% 0.0700 137.4)",
+          "oklch(38.0% 0.0700 137.4)",
+          "oklch(49.5% 0.0700 137.4)",
+          "oklch(61.0% 0.0700 137.4)",
+          "oklch(72.5% 0.0700 137.4)",
+          "oklch(84.0% 0.0700 137.4)",
+          "oklch(95.0% 0.0700 137.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Entry Display",
+        "purpose": "The clear purpose question on home."
+      },
+      "headline": {
+        "displayName": "Working Headline",
+        "purpose": "The current operating task or working destination."
+      },
+      "title": {
+        "displayName": "Destination Title",
+        "purpose": "A compact task or outcome destination."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable supporting content and instructions."
+      },
+      "label": {
+        "displayName": "Control Label",
+        "purpose": "Navigation and supporting controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "preview-paper",
+        "value": "0 20px 48px #20242f16",
+        "purpose": "A bounded paper preview artifact on entry."
+      },
+      {
+        "name": "resume-row",
+        "value": "0 7px 22px #20242f08",
+        "purpose": "Subtle separation for the home saved-work row."
+      },
+      {
+        "name": "search-popup",
+        "value": "0 14px 35px #0004",
+        "purpose": "Separate search results from the operating shell."
+      },
+      {
+        "name": "disclosure-menu",
+        "value": "0 18px 50px #0006",
+        "purpose": "Separate an open workflow menu from content beneath."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-color",
+        "value": "160ms ease",
+        "purpose": "Ordinary shell control background and text-color changes."
+      },
+      {
+        "name": "route-arrival",
+        "value": "260ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "A single bounded shell arrival; 5px vertical travel and opacity .75 to 1."
+      },
+      {
+        "name": "preview-arrival",
+        "value": "240ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "A transient entry preview; 8px travel, 3px brief blur and opacity .65 to 1."
+      },
+      {
+        "name": "preview-adjustment",
+        "value": "300ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "A small entry paper tilt adjustment on hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Remove nonessential arrival animations and transitions; preserve usable controls and content."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "navigation-drawer",
+        "value": "1100px"
+      },
+      {
+        "name": "workflow-stack",
+        "value": "1000px"
+      },
+      {
+        "name": "compact-shell",
+        "value": "760px"
+      },
+      {
+        "name": "compact-module",
+        "value": "600px"
+      },
+      {
+        "name": "narrow-phone",
+        "value": "370px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "A clear, solid action in the operating shell.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">Създай задача</button>",
+      "css": ".ds-button-primary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid transparent;border-radius:9px;background:#cf352c;color:#fff;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-primary:hover:not(:disabled){background:#b62d25}.ds-button-primary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-primary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-primary{transition:background-color 160ms ease,color 160ms ease}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A supporting shell control with a visible boundary.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Назад</button>",
+      "css": ".ds-button-secondary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid #525865;border-radius:9px;background:#252931;color:#f0f2f6;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-secondary:hover{background:#252931;color:#f0f2f6}.ds-button-secondary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-secondary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-secondary{transition:background-color 160ms ease,color 160ms ease}}"
+    },
+    {
+      "name": "Task Field",
+      "kind": "input",
+      "refersTo": "task-field",
+      "description": "A labeled writable field on the current task's paper.",
+      "html": "<label class=\"ds-field-label\">Какво искаш да създадеш?<textarea class=\"ds-task-field\" rows=\"3\" placeholder=\"Опиши целта и за кого е резултатът.\"></textarea></label>",
+      "css": ".ds-field-label{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:grid;gap:8px;font-size:12px;font-weight:650;color:#20242c}.ds-task-field{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:block;width:100%;border:1px solid #aeb1ba;background:#fff;color:#20242c;border-radius:3px;font-size:13px;font-weight:450;line-height:1.7;padding:12px 13px;resize:vertical;caret-color:#f2796c}.ds-task-field::placeholder{color:#62656e;opacity:1}.ds-task-field:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "nav-active",
+      "description": "Persistent location on graphite; paper identifies the selected destination.",
+      "html": "<nav class=\"ds-sidebar-nav\" aria-label=\"Основна навигация\"><a class=\"ds-nav-active\" href=\"#home\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10H3Z\"/><path d=\"M9 20v-7h6v7\"/></svg><span>Начало</span></a><a class=\"ds-nav-item\" href=\"#tasks\"><svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10H3Z\"/><path d=\"M9 20v-7h6v7\"/></svg><span>Задачи</span></a></nav>",
+      "css": ".ds-sidebar-nav{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);width:184px;padding:15px;background:#111315;display:grid;gap:3px}.ds-nav-active,.ds-nav-item{display:flex;align-items:center;gap:13px;min-height:46px;padding:12px 13px;border:0;border-radius:9px;font-size:13px;text-decoration:none}.ds-nav-item{color:#b9bdc7;background:none}.ds-nav-active{background:#f3f4f6;color:#1a1d24}.ds-nav-active svg{color:#cf352c}.ds-nav-item:hover{background:#25282e;color:#fff}.ds-nav-active:hover{background:#fff;color:#14161b}.ds-nav-active:focus-visible,.ds-nav-item:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}@media(prefers-reduced-motion:no-preference){.ds-nav-active,.ds-nav-item{transition:background-color 160ms ease,color 160ms ease}}"
+    },
+    {
+      "name": "Category Tag",
+      "kind": "chip",
+      "description": "A factual category label on featured paper content.",
+      "html": "<span class=\"ds-category-tag\">Въпрос</span>",
+      "css": ".ds-category-tag{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:inline-flex;align-items:center;min-height:26px;border:1px solid #a9b5c7;border-radius:20px;padding:3px 10px;font-size:11px;color:#536177;background:#f3f4f6}"
+    },
+    {
+      "name": "Work Surface",
+      "kind": "card",
+      "refersTo": "work-surface",
+      "description": "The flat cool-paper container for a task, draft or inspectable result.",
+      "html": "<section class=\"ds-work-surface\"><h2>Текуща задача</h2><p>Опиши целта, прегледай черновата и запази полезния резултат.</p></section>",
+      "css": ".ds-work-surface{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);padding:31px 34px 24px;border-radius:14px;background:#f3f4f6;color:#20242c;box-shadow:none}.ds-work-surface h2{font-size:clamp(23px,2.1vw,30px);line-height:1.2;letter-spacing:-.025em;font-weight:730;margin:0 0 14px}.ds-work-surface p{font-size:12px;line-height:1.7;color:#4c4e55;max-width:48ch;margin:0 0 24px}@media(max-width:760px){.ds-work-surface{padding:24px 22px;border-radius:12px}}"
+    },
+    {
+      "name": "Goal Destination",
+      "kind": "custom",
+      "description": "One direct home action, with its purpose and a directional cue.",
+      "html": "<button class=\"ds-goal\" type=\"button\"><span class=\"ds-goal-copy\"><strong>Създай съдържание</strong><span>От ясна идея до полезна чернова.</span></span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
+      "css": ".ds-goal{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;padding:25px 0;text-align:left;background:none;color:#15171b;border:0;border-top:1px solid #dadddf;border-bottom:1px solid #dadddf;border-radius:0;min-height:104px;cursor:pointer}.ds-goal-copy{display:block;min-width:0}.ds-goal-copy>strong{display:block;font-size:clamp(23px,2.2vw,30px);font-weight:650;line-height:1.2;letter-spacing:-.025em}.ds-goal-copy>span{display:block;font-size:14px;line-height:1.5;margin-top:8px;color:#61646d}.ds-goal>svg{flex-shrink:0;color:#737780}.ds-goal:hover>svg{transform:translate(3px,-3px)}.ds-goal[data-preview=true]>svg,.ds-goal[data-preview=true] strong{color:#cf352c}.ds-goal:focus-visible{outline:3px solid #2c68b0;outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-goal>svg{transition:color 180ms ease,transform 220ms cubic-bezier(.16,1,.3,1)}}@media(max-width:760px){.ds-goal{gap:12px;padding:24px 0}.ds-goal-copy>strong{font-size:26px}.ds-goal-copy>span{font-size:13px;max-width:31ch}}"
+    },
+    {
+      "name": "More Disclosure",
+      "kind": "custom",
+      "description": "Native progressive disclosure for secondary workflow destinations.",
+      "html": "<details class=\"ds-more\"><summary>Още <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary><div><button type=\"button\">3D карта</button><button type=\"button\">Специалисти</button></div></details>",
+      "css": ".ds-more{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);position:relative;width:230px;color:#c0c7d4}.ds-more>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;cursor:pointer;min-height:44px;padding:10px 13px;font-size:12px;border-radius:8px;background:#111315}.ds-more>summary::-webkit-details-marker{display:none}.ds-more[open]>div{position:relative;margin-top:8px;width:230px;padding:8px;background:#f6f5f1;color:#131518;border-radius:14px;box-shadow:0 18px 50px #0006;display:grid}.ds-more button{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:48px;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;text-align:left;border:0;background:transparent;color:inherit;border-radius:8px;font-size:13px;cursor:pointer}.ds-more button:hover{background:#e3e4df}.ds-more>summary:focus-visible,.ds-more button:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}@media(prefers-reduced-motion:no-preference){.ds-more[open]>div{animation:ds-more-arrival 160ms cubic-bezier(.16,1,.3,1) both}@keyframes ds-more-arrival{from{opacity:0;transform:translateY(-5px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}}"
+    },
+    {
+      "name": "Task Navigation",
+      "kind": "nav",
+      "description": "Clear workflow destinations, separate from optional exploration.",
+      "html": "<nav class=\"ds-task-nav\" aria-label=\"Работна област\"><button type=\"button\" aria-pressed=\"true\">Задачи</button><button type=\"button\" aria-pressed=\"false\">Реклами</button><button type=\"button\" aria-pressed=\"false\">Видео</button><button type=\"button\" aria-pressed=\"false\">Екип</button></nav>",
+      "css": ".ds-task-nav{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;gap:5px;padding:0 0 17px;border-bottom:1px solid #343941;background:#111315}.ds-task-nav button{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;gap:9px;align-items:center;padding:12px 17px;min-height:48px;background:transparent;color:#c1c7d1;border:0;border-radius:8px;box-shadow:none;font-size:14px;font-weight:600;cursor:pointer}.ds-task-nav button[aria-pressed=true]{background:#f3f4f6;color:#20242c}.ds-task-nav button:hover{background:#2b3039;color:#fff}.ds-task-nav button[aria-pressed=true]:hover{background:#fff;color:#20242c}.ds-task-nav button:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}@media(max-width:760px){.ds-task-nav{gap:3px;justify-content:space-between}.ds-task-nav button{padding:12px 10px;gap:7px;font-size:13px;min-height:46px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A visible purpose, a direct action, an inspectable result.",
+    "overview": "The operating product is a clear, adult workspace: a graphite shell establishes location, cool white paper makes the current work readable, and restrained red identifies an action or active detail. Manrope and the established silver-blue Academy logo carry the identity. Preserve that logo as an asset; do not redraw or recolor it to match the action accent.\n\nThis direction supersedes the earlier blue-glass and mountain treatment within the operating core. The optional spatial map, immersive learning surfaces and independent editing modules retain their own functional needs. Designs generated for a customer's website or brand establish their own visual identity; the Academy shell palette does not constrain those deliverables.",
+    "keyCharacteristics": [
+      "Clear location and a visible next action.",
+      "Quiet graphite framing around readable working paper.",
+      "Small red emphasis, with silver-blue identity and visible keyboard focus.",
+      "Bounded, interruptible motion that respects reduced-motion preferences."
+    ],
+    "rules": [
+      {
+        "name": "The Action Rule",
+        "body": "Red identifies a useful action or state; it does not flood the shell, replace the logo, or stand in for real progress.",
+        "section": "colors"
+      },
+      {
+        "name": "The Literal Label Rule",
+        "body": "Navigation names the visible destination. Controls name their actual action. Saving, generating, reviewing, approving and publishing remain visibly distinct states.",
+        "section": "typography"
+      },
+      {
+        "name": "The Bounded Motion Rule",
+        "body": "Arrival reveals finish quickly and leave text and controls usable. The shell reveal lasts (260ms), entry previews (240ms), and ordinary color changes (160ms). Remove these arrivals and nonessential transitions for reduced motion. Do not add continuous WebGL or background animation to entry.",
+        "section": "elevation & depth"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the established silver-blue Academy logo.",
+      "**Do** use graphite framing, cool paper and restrained red within the operating core.",
+      "**Do** expose a direct next action and keep saved work reachable.",
+      "**Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.",
+      "**Do** preserve the optional map and each editing module's independent behavior.",
+      "**Do** give generated customer websites and brands their own appropriate visual identity."
+    ],
+    "donts": [
+      "**Don't** restore blue glass, mountain atmosphere, neon noise or a cluttered collage in the operating core.",
+      "**Don't** require the 3D map or an extra confirmation before the selected entry task.",
+      "**Don't** obscure navigation, overload the first view, or duplicate supporting calls to action.",
+      "**Don't** use invented activity, testimonials, progress or completed AI work as visual content.",
+      "**Don't** equate a timer, preview, animation or selected map node with verified work, mastery or measured retention."
+    ]
+  }
+}

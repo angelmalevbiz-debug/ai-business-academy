@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, FlowArrow, Globe, Lightbulb, Megaphone, Package, Handshake, Plus } from '@phosphor-icons/react';
+import { ArrowRight, ArrowUpRight, FlowArrow, Globe, Lightbulb, Megaphone, Package, Handshake } from '@phosphor-icons/react';
 import styles from './business-goals.module.css';
 
 type BusinessStage = 'new' | 'existing';
@@ -13,10 +13,10 @@ type BusinessGoalsProps = {
 };
 
 export function BusinessGoals({ openWebsite, openWorkflow, openPositioning, openTeam }: BusinessGoalsProps) {
-  const [stage, setStage] = useState<BusinessStage | null>(null);
+  const [stage, setStage] = useState<BusinessStage>('new');
   const heading = useRef<HTMLHeadingElement>(null);
 
-  function chooseStage(next: BusinessStage | null) {
+  function chooseStage(next: BusinessStage) {
     setStage(next);
     requestAnimationFrame(() => heading.current?.focus({ preventScroll: true }));
   }
@@ -32,29 +32,14 @@ export function BusinessGoals({ openWebsite, openWorkflow, openPositioning, open
   ];
 
   return <section className={styles.hub} aria-label="Развитие на бизнес">
-    <header className={styles.heading}>
-      {stage && <button className={styles.back} onClick={() => chooseStage(null)}><ArrowLeft size={18} />{stage === 'new' ? 'Започвам бизнес' : 'Вече имам бизнес'}<span>Промени</span></button>}
-      <h1 ref={heading} tabIndex={-1}>{stage ? 'Какво ти трябва сега?' : 'На какъв етап си?'}</h1>
-      <p>{stage ? 'Избери резултат. Отваряме направо мястото за него.' : 'Ще ти покажем подходящите възможности.'}</p>
-    </header>
-
-    {!stage ? <div className={styles.stageChoices}>
-      <button className={styles.stageNew} onClick={() => chooseStage('new')}>
-        <span className={styles.stageVisual} aria-hidden="true"><Plus size={48} weight="light" /><span className={styles.stageLine} /><span className={styles.stageDot} /></span>
-        <span><strong>Започвам бизнес</strong><span>Имам идея. Искам да ѝ дам форма.</span></span>
-        <ArrowRight size={27} aria-hidden="true" />
-      </button>
-      <button className={styles.stageExisting} onClick={() => chooseStage('existing')}>
-        <span className={styles.stageVisual} aria-hidden="true"><Check size={42} weight="light" /><span className={styles.stageLine} /><ArrowUpRight size={37} weight="light" /></span>
-        <span><strong>Вече имам бизнес</strong><span>Искам да развия нещо конкретно.</span></span>
-        <ArrowRight size={27} aria-hidden="true" />
-      </button>
-    </div> : <div className={styles.destinations} key={stage}>
+    <header className={styles.heading}><h1 ref={heading} tabIndex={-1}>Какво искаш да развиеш?</h1></header>
+    <div className={styles.stageToggle} role="group" aria-label="Етап на бизнеса"><button aria-pressed={stage==='new'} onClick={()=>chooseStage('new')}>Започвам бизнес</button><button aria-pressed={stage==='existing'} onClick={()=>chooseStage('existing')}>Вече имам бизнес</button></div>
+    <div className={styles.destinations} key={stage}>
       <section className={styles.website} aria-labelledby="business-website-title">
         <div className={styles.websiteCopy}>
           <Globe size={28} weight="light" aria-hidden="true" />
           <h2 id="business-website-title">Собствен сайт.</h2>
-          <p>Твоят бизнес, твоите снимки, твоят стил.</p>
+          <p>Създай, промени и изтегли.</p>
         </div>
         <div className={styles.sitePreview} aria-hidden="true">
           <div className={styles.browserBar}><i /><i /><i /><span>Твоят сайт</span></div>
@@ -74,7 +59,7 @@ export function BusinessGoals({ openWebsite, openWorkflow, openPositioning, open
           <ArrowUpRight size={23} aria-hidden="true" />
         </button>)}
       </section>
-    </div>}
+    </div>
 
     <footer className={styles.footer}><button onClick={openTeam}><FlowArrow size={20} />Виж AI екипа<ArrowRight size={18} /></button></footer>
   </section>;
