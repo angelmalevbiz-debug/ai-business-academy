@@ -7,6 +7,7 @@ colors:
   shell-ground: "#111315"
   shell-surface: "#20252d"
   shell-control: "#252931"
+  demonstration-ground: "#191c20"
   work-paper: "#f3f4f6"
   field-paper: "#ffffff"
   work-ink: "#20242c"
@@ -53,6 +54,7 @@ rounded:
   compact-panel: "12px"
   panel: "14px"
   tag: "20px"
+  demonstration: "18px"
 spacing:
   compact: "8px"
   control-gap: "12px"
@@ -83,6 +85,10 @@ components:
     textColor: "{colors.work-ink}"
     rounded: "{rounded.panel}"
     padding: "31px 34px 24px"
+  goal-demonstration:
+    backgroundColor: "{colors.demonstration-ground}"
+    rounded: "{rounded.demonstration}"
+    padding: "30px 24px"
   nav-active:
     backgroundColor: "{colors.work-paper}"
     textColor: "#1a1d24"
@@ -115,6 +121,7 @@ The palette is neutral and cool, with a warm red action accent.
 ### Neutral
 - **Graphite Ground:** the operating shell and persistent navigation.
 - **Graphite Surface / Control:** supporting cards and secondary controls on dark surfaces.
+- **Demonstration Ground:** the single contained home demonstration stage.
 - **Cool Work Paper / Field Paper:** the home canvas, current work, featured content and writable fields.
 - **Work Ink / Entry Ink:** readable content on paper.
 - **Light Ink / Secondary Ink:** primary and supporting text on graphite.
@@ -147,11 +154,13 @@ Home uses a centered content width (1140px). Working and supporting surfaces can
 
 The operating core is flat at rest. Contrast between graphite, cool paper and quiet dividers establishes hierarchy. Do not restore the earlier blue-glass gradients, atmospheric backdrop or pervasive glow within this core.
 
-Use soft shadows only where they explain a temporary layer or a preview artifact. Entry paper previews have a restrained lift; menus and search results separate from the page beneath. Task sheets, regular cards and primary buttons do not need ambient shadows.
+Use soft shadows only where they explain a temporary layer or a preview artifact. Paper artifacts lift inside the graphite demonstration stage; menus, search results and toasts separate from the page beneath. Task sheets, regular cards and primary buttons do not need ambient shadows.
 
 The optional 3D workflow map keeps true perspective, prepared reflections and independent camera movement. Load it on request; pause it when hidden or offscreen and stop camera movement after settling. Selecting a node is navigation, not evidence that a job ran.
 
-**The Bounded Motion Rule.** Arrival reveals finish quickly and leave text and controls usable. The shell reveal lasts (260ms), entry previews (240ms), and ordinary color changes (160ms). Remove these arrivals and nonessential transitions for reduced motion. Do not add continuous WebGL or background animation to entry.
+**The Bounded Motion Rule.** Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). The home demonstrations run once and settle, with finite sequences lasting up to (1100ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.
+
+Run home demonstration sequences only while the stage intersects the viewport and the document is visible. A new desktop hover or keyboard focus replaces the current scene without queuing work. On phones, keep the compact thumbnails static. The visible labels carry the information when motion is unavailable.
 
 ## Shapes
 
@@ -164,13 +173,13 @@ Straight dividers organize entry choices and saved work. Reserve circles for ava
 ### Buttons
 Primary buttons are solid Action Red with white text and a deeper red hover. Standard shell buttons have a minimum height (46px); prominent working actions may be taller. Secondary buttons use a restrained dark fill or clear border appropriate to their background. Keep a visible focus outline (3px) with an offset (4px); never rely on color change alone.
 
-Disabled, loading, failure and completion states must communicate the actual operation. Utility controls retain usable targets; do not shrink an essential action into metadata.
+Disabled, loading, failure and completion states must communicate the actual operation. Utility controls retain usable targets; do not shrink an essential action into metadata. A short press response may compress an enabled button (scale .975, 120ms); it acknowledges input without delaying the action.
 
 ### Inputs / Fields
 Fields use explicit labels, concrete examples and readable text. Paper task fields use a white fill, dark ink and a clear border. The modal and dark conversation editor use a distinct dark field treatment with sufficient contrast. Preserve editing, approval, save and publish behavior inside each module rather than merging those operations into a single decorative control.
 
 ### Navigation
-The graphite sidebar exposes the core destinations. The selected item uses cool paper with dark text and a small red icon accent. Personal destinations use a native disclosure. The mobile drawer must keep the current location clear and the account row readable.
+The graphite sidebar exposes the core destinations. The selected item uses cool paper with dark text and a small red icon accent. Personal destinations use a native disclosure. The mobile drawer must keep the current location clear and the account row readable. Product description, copyright and feedback access live in the **За платформата** dialog opened from the sidebar, keeping repeated information out of each working surface.
 
 Within workflow, keep the primary task destinations visible. Saved project history is labeled **Моите задачи**. Additional mobile destinations are consolidated under **Още**; show project context and new-task header controls when an active project or role makes them relevant. The optional map stays reachable without becoming a prerequisite.
 
@@ -181,7 +190,14 @@ Working paper is for the current task and readable results. Dark supporting card
 Category tags are compact, outlined labels. Selected filters use paper and dark text. A tag, counter or success mark must represent a real category, selection or saved state; never invent activity or achievement to populate a design.
 
 ### Goal Entry
-Each home goal is a direct button that immediately opens its exact destination. A transient preview explains that goal with one coherent artifact or relationship; avoid a collage of simultaneous concepts. On phones, keep the goal readable and the compact preview separate from its text. Miniature details are decorative; the visible labels explain the action without relying on tiny preview text. A saved-work row or a real example remains secondary and useful.
+Each home goal is a direct button that immediately opens its exact destination. Desktop hover or keyboard focus selects one explanatory scene within a single graphite stage: a paper draft settles and writes, a website assembles, a process connects through a review step, or a focus arc draws. Each sequence finishes and settles; it represents a demonstration rather than live job execution. Avoid a collage of simultaneous concepts.
+
+On phones, keep the goal readable and its static compact thumbnail separate from the text. The previews are decorative and hidden from assistive technology; visible labels explain the action without relying on miniature text or animation. Touch opens the destination directly. A saved-work row or a real example remains secondary and useful.
+
+### Dialogs / Feedback
+Use the existing native dialog behavior for temporary information: clear title, visible close action, keyboard dismissal and focus return. The opening motion is brief (220ms) and resolves from a small offset and scale. The About dialog preserves the established product description, copyright and community feedback action. On mobile, close the navigation drawer before opening it and return focus to the menu trigger.
+
+A toast remains an actual status message. Its check may use a brief confirmation motion (240ms); the animation does not create a new claim of saved, approved or published work. Preserve the message, dismissal and accessible status semantics when motion is disabled.
 
 ### Task Workspace
 The current task is the working surface. Offer spatial exploration explicitly instead of loading the map at entry. Business stage changes inline. Preserve exact task selection across reload and registration, and keep real saved artifacts and brand context reachable through their existing modules.
@@ -192,14 +208,14 @@ The current task is the working surface. Offer spatial exploration explicitly in
 - **Do** preserve the established silver-blue Academy logo.
 - **Do** use graphite framing, cool paper and restrained red within the operating core.
 - **Do** expose a direct next action and keep saved work reachable.
+- **Do** let each demonstration settle, stop it offscreen or in a hidden tab, and keep mobile thumbnails static.
 - **Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.
 - **Do** preserve the optional map and each editing module's independent behavior.
 - **Do** give generated customer websites and brands their own appropriate visual identity.
 
 ### Don't:
 - **Don't** restore blue glass, mountain atmosphere, neon noise or a cluttered collage in the operating core.
-- **Don't** require the 3D map or an extra confirmation before the selected entry task.
+- **Don't** require the 3D map, a preview tap, an animation to finish or an extra confirmation before the selected entry task.
 - **Don't** obscure navigation, overload the first view, or duplicate supporting calls to action.
 - **Don't** use invented activity, testimonials, progress or completed AI work as visual content.
 - **Don't** equate a timer, preview, animation or selected map node with verified work, mastery or measured retention.
-

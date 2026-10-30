@@ -49,3 +49,7 @@ The owner-pinned silver-blue reference supersedes the prior flat black/lime entr
 ## Current operating presentation — 30 October 2026
 
 The owner requested a simpler complete design direction and rejected the busy multi-image concept. Within the operating core, the graphite shell, cool paper and restrained red action accent now supersede the earlier mountain/blue-glass treatment. Preserve the established silver-blue logo. Home choices open their exact tasks directly, business stage changes inline, and the spatial team map remains optional. Personal destinations use native disclosure. Generated customer websites keep their own business-specific visual identity. Engagement and beginner effectiveness remain unmeasured; docs/design-review-20261030/VERIFICATION.md records the tested guest scope and remaining work.
+
+## Approved motion refinement, 30 October 2026
+
+The user approved the current minimalist direction and requested more visual interest while keeping it clear and concise. Preserve that composition. Use bounded explanatory demonstrations and immediate feedback rather than adding navigation steps or more marketing copy. Supporting Academy description and copyright live in About, accessible from the sidebar. Direct task entry, mobile clarity and reduced-motion support remain requirements. Visual interest is a design goal; dopamine, retention and learning efficacy have not been measured.

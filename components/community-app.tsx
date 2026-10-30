@@ -34,6 +34,7 @@ import {
   FlowArrow,
   Globe,
   Storefront,
+  Info,
 } from "@phosphor-icons/react";
 import { PATHS as SEED_PATHS, LESSONS as SEED_LESSONS } from "@/lib/content";
 import { brand } from "@/lib/brand";
@@ -70,7 +71,7 @@ type View =
   | "websites"
   | "studio";
 type Modal =
-  "login" | "register" | "onboarding" | "post" | "notifications" | null;
+  "login" | "register" | "onboarding" | "post" | "notifications" | "about" | null;
 type QuickReport = {
   lessonId: string;
   tried: string;
@@ -707,6 +708,13 @@ export function CommunityApp({
         )}
         {user?.role === "admin" && <button className={`nav-item ${view === 'studio' ? 'active' : ''}`} onClick={() => navigate('studio')}><Books size={21} />Студио за съдържание</button>}
         <div className="sidebar-bottom">
+          <button className="platform-info-link" onClick={() => {
+            if (mobileNav) {
+              navFocusTarget.current = "none";
+              setMobileNav(false);
+              requestAnimationFrame(() => { menuTriggerRef.current?.focus(); setModal("about"); });
+            } else setModal("about");
+          }}><Info size={16} aria-hidden="true"/><span>За платформата</span></button>
           <button
             className="user-card"
             onClick={() => {
@@ -1420,16 +1428,6 @@ export function CommunityApp({
               )}
             </div>
           )}
-          <footer className="app-footer">
-            <span>
-              © {new Date().getFullYear()} {brand.name} Community
-            </span>
-            <span>{brand.descriptor}</span>
-            <button onClick={() => navigate("community")}>
-              Дай обратна връзка
-              <ArrowUpRight size={13} />
-            </button>
-          </footer>
         </main>
       </div>
       {toast && (
@@ -1441,6 +1439,14 @@ export function CommunityApp({
           </button>
         </div>
       )}
+      {modal === "about" && <ModalFrame title="За платформата" close={() => setModal(null)}>
+        <div className="platform-info">
+          <strong>{brand.name}</strong>
+          <p>{brand.descriptor}</p>
+          <button className="button secondary" onClick={() => { setModal(null); navigate("community"); }}>Дай обратна връзка<ArrowUpRight size={17} aria-hidden="true"/></button>
+          <small>© {new Date().getFullYear()} {brand.name}</small>
+        </div>
+      </ModalFrame>}
       {(modal === "login" || modal === "register") && (
         <ModalFrame
           close={() => {

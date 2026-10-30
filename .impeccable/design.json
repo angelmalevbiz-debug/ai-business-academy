@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T19:55:43.990Z",
+  "generatedAt": "2026-10-30T20:16:35.522Z",
   "title": "Design System: AI Business Academy",
   "extensions": {
     "colorMeta": {
@@ -241,6 +241,20 @@
           "oklch(84.0% 0.0700 137.4)",
           "oklch(95.0% 0.0700 137.4)"
         ]
+      },
+      "demonstration-ground": {
+        "role": "neutral",
+        "displayName": "Demonstration Graphite",
+        "tonalRamp": [
+          "oklch(15.0% 0.0090 255.6)",
+          "oklch(26.5% 0.0090 255.6)",
+          "oklch(38.0% 0.0090 255.6)",
+          "oklch(49.5% 0.0090 255.6)",
+          "oklch(61.0% 0.0090 255.6)",
+          "oklch(72.5% 0.0090 255.6)",
+          "oklch(84.0% 0.0090 255.6)",
+          "oklch(95.0% 0.0090 255.6)"
+        ]
       }
     },
     "typographyMeta": {
@@ -268,8 +282,8 @@
     "shadows": [
       {
         "name": "preview-paper",
-        "value": "0 20px 48px #20242f16",
-        "purpose": "A bounded paper preview artifact on entry."
+        "value": "0 18px 32px #0003",
+        "purpose": "A paper or website artifact lifted inside the graphite home demonstration stage."
       },
       {
         "name": "resume-row",
@@ -285,33 +299,73 @@
         "name": "disclosure-menu",
         "value": "0 18px 50px #0006",
         "purpose": "Separate an open workflow menu from content beneath."
+      },
+      {
+        "name": "status-toast",
+        "value": "0 10px 30px #0003",
+        "purpose": "Separate a truthful status message from the working surface."
       }
     ],
     "motion": [
       {
         "name": "state-color",
         "value": "160ms ease",
-        "purpose": "Ordinary shell control background and text-color changes."
+        "purpose": "Ordinary shell navigation and button color changes."
       },
       {
         "name": "route-arrival",
-        "value": "260ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "A single bounded shell arrival; 5px vertical travel and opacity .75 to 1."
+        "value": "180ms ease-out",
+        "purpose": "Opacity .72 to 1 only; route controls remain usable immediately."
       },
       {
-        "name": "preview-arrival",
+        "name": "press-feedback",
+        "value": "120ms ease-out",
+        "purpose": "Enabled buttons, filter controls and icon buttons compress to scale .975 while pressed."
+      },
+      {
+        "name": "goal-signifier",
+        "value": "180ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "A home choice's copy shifts 5px on hover/focus and 2px while pressed; the exact destination opens directly."
+      },
+      {
+        "name": "paper-settle",
+        "value": "650ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "One content artifact settles from 20px and -9deg to -4deg; text reveal and line writing finish by 960ms."
+      },
+      {
+        "name": "website-assemble",
+        "value": "650ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "One website artifact settles; its title, brand shape and action appear in a bounded sequence ending by 750ms."
+      },
+      {
+        "name": "process-connect",
+        "value": "380ms ease-out",
+        "purpose": "Two sample process connections fill with 180ms and 560ms delays; the review check finishes at 1080ms."
+      },
+      {
+        "name": "focus-trace",
+        "value": "1100ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "The focus preview arc draws once to 72/100 and settles; it is an illustration, not an actual timer."
+      },
+      {
+        "name": "dialog-open",
+        "value": "220ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Native dialogs resolve from opacity .55, translateY(8px), scale(.985) and blur(2px)."
+      },
+      {
+        "name": "toast-confirmation",
         "value": "240ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "A transient entry preview; 8px travel, 3px brief blur and opacity .65 to 1."
+        "purpose": "The existing status check resolves from scale .65 and opacity .4 without changing the message's meaning."
       },
       {
-        "name": "preview-adjustment",
-        "value": "300ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "A small entry paper tilt adjustment on hover."
+        "name": "demonstration-visibility",
+        "value": "IntersectionObserver threshold .2 + document.hidden",
+        "purpose": "Apply finite desktop scene animations only when the stage intersects the viewport and the document is visible. Replace the keyed scene on goal changes; do not queue animations. Mobile thumbnails remain static."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Remove nonessential arrival animations and transitions; preserve usable controls and content."
+        "purpose": "Disable the home sequences, dialog/confirmation animations, press transforms, nonessential transitions and dialog backdrop blur; preserve content, direct actions and focus behavior."
       }
     ],
     "breakpoints": [
@@ -344,7 +398,7 @@
       "refersTo": "button-primary",
       "description": "A clear, solid action in the operating shell.",
       "html": "<button class=\"ds-button-primary\" type=\"button\">Създай задача</button>",
-      "css": ".ds-button-primary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid transparent;border-radius:9px;background:#cf352c;color:#fff;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-primary:hover:not(:disabled){background:#b62d25}.ds-button-primary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-primary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-primary{transition:background-color 160ms ease,color 160ms ease}}"
+      "css": ".ds-button-primary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid transparent;border-radius:9px;background:#cf352c;color:#fff;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-primary:hover:not(:disabled){background:#b62d25}.ds-button-primary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-primary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-primary{transition:background-color 160ms ease,color 160ms ease,transform 120ms ease-out}}@media(prefers-reduced-motion:no-preference){.ds-button-primary:active:not(:disabled){transform:scale(.975)}}"
     },
     {
       "name": "Secondary Button",
@@ -352,7 +406,7 @@
       "refersTo": "button-secondary",
       "description": "A supporting shell control with a visible boundary.",
       "html": "<button class=\"ds-button-secondary\" type=\"button\">Назад</button>",
-      "css": ".ds-button-secondary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid #525865;border-radius:9px;background:#252931;color:#f0f2f6;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-secondary:hover{background:#252931;color:#f0f2f6}.ds-button-secondary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-secondary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-secondary{transition:background-color 160ms ease,color 160ms ease}}"
+      "css": ".ds-button-secondary{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);min-height:46px;padding:12px 17px;border:1px solid #525865;border-radius:9px;background:#252931;color:#f0f2f6;font-size:13px;cursor:pointer;box-shadow:none}.ds-button-secondary:hover{background:#252931;color:#f0f2f6}.ds-button-secondary:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}.ds-button-secondary:disabled{opacity:.5;cursor:wait}@media(prefers-reduced-motion:no-preference){.ds-button-secondary{transition:background-color 160ms ease,color 160ms ease,transform 120ms ease-out}}@media(prefers-reduced-motion:no-preference){.ds-button-secondary:active:not(:disabled){transform:scale(.975)}}"
     },
     {
       "name": "Task Field",
@@ -388,9 +442,9 @@
     {
       "name": "Goal Destination",
       "kind": "custom",
-      "description": "One direct home action, with its purpose and a directional cue.",
+      "description": "One direct home action; desktop hover or keyboard focus selects its single explanatory stage scene.",
       "html": "<button class=\"ds-goal\" type=\"button\"><span class=\"ds-goal-copy\"><strong>Създай съдържание</strong><span>От ясна идея до полезна чернова.</span></span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
-      "css": ".ds-goal{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;padding:25px 0;text-align:left;background:none;color:#15171b;border:0;border-top:1px solid #dadddf;border-bottom:1px solid #dadddf;border-radius:0;min-height:104px;cursor:pointer}.ds-goal-copy{display:block;min-width:0}.ds-goal-copy>strong{display:block;font-size:clamp(23px,2.2vw,30px);font-weight:650;line-height:1.2;letter-spacing:-.025em}.ds-goal-copy>span{display:block;font-size:14px;line-height:1.5;margin-top:8px;color:#61646d}.ds-goal>svg{flex-shrink:0;color:#737780}.ds-goal:hover>svg{transform:translate(3px,-3px)}.ds-goal[data-preview=true]>svg,.ds-goal[data-preview=true] strong{color:#cf352c}.ds-goal:focus-visible{outline:3px solid #2c68b0;outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-goal>svg{transition:color 180ms ease,transform 220ms cubic-bezier(.16,1,.3,1)}}@media(max-width:760px){.ds-goal{gap:12px;padding:24px 0}.ds-goal-copy>strong{font-size:26px}.ds-goal-copy>span{font-size:13px;max-width:31ch}}"
+      "css": ".ds-goal{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;padding:25px 0;text-align:left;background:none;color:#15171b;border:0;border-top:1px solid #dadddf;border-bottom:1px solid #dadddf;border-radius:0;min-height:104px;cursor:pointer}.ds-goal-copy{display:block;min-width:0}.ds-goal-copy>strong{display:block;font-size:clamp(23px,2.2vw,30px);font-weight:650;line-height:1.2;letter-spacing:-.025em}.ds-goal-copy>span{display:block;font-size:14px;line-height:1.5;margin-top:8px;color:#61646d}.ds-goal>svg{flex-shrink:0;color:#737780}.ds-goal:hover>svg{transform:translate(3px,-3px)}.ds-goal[data-preview=true]>svg,.ds-goal[data-preview=true] strong{color:#cf352c}.ds-goal:focus-visible{outline:3px solid #2c68b0;outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-goal>svg{transition:color 180ms ease,transform 220ms cubic-bezier(.16,1,.3,1)}}@media(max-width:760px){.ds-goal{gap:12px;padding:24px 0}.ds-goal-copy>strong{font-size:26px}.ds-goal-copy>span{font-size:13px;max-width:31ch}}@media(prefers-reduced-motion:no-preference){.ds-goal-copy{transition:transform 180ms cubic-bezier(.16,1,.3,1)}.ds-goal:is(:hover,:focus-visible) .ds-goal-copy{transform:translateX(5px)}.ds-goal:active .ds-goal-copy{transform:translateX(2px)}}"
     },
     {
       "name": "More Disclosure",
@@ -405,6 +459,14 @@
       "description": "Clear workflow destinations, separate from optional exploration.",
       "html": "<nav class=\"ds-task-nav\" aria-label=\"Работна област\"><button type=\"button\" aria-pressed=\"true\">Задачи</button><button type=\"button\" aria-pressed=\"false\">Реклами</button><button type=\"button\" aria-pressed=\"false\">Видео</button><button type=\"button\" aria-pressed=\"false\">Екип</button></nav>",
       "css": ".ds-task-nav{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;gap:5px;padding:0 0 17px;border-bottom:1px solid #343941;background:#111315}.ds-task-nav button{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;gap:9px;align-items:center;padding:12px 17px;min-height:48px;background:transparent;color:#c1c7d1;border:0;border-radius:8px;box-shadow:none;font-size:14px;font-weight:600;cursor:pointer}.ds-task-nav button[aria-pressed=true]{background:#f3f4f6;color:#20242c}.ds-task-nav button:hover{background:#2b3039;color:#fff}.ds-task-nav button[aria-pressed=true]:hover{background:#fff;color:#20242c}.ds-task-nav button:focus-visible{outline:3px solid #7aa9e8;outline-offset:4px;}@media(max-width:760px){.ds-task-nav{gap:3px;justify-content:space-between}.ds-task-nav button{padding:12px 10px;gap:7px;font-size:13px;min-height:46px}}"
+    },
+    {
+      "name": "Goal Demonstration Stage",
+      "kind": "custom",
+      "refersTo": "goal-demonstration",
+      "description": "One decorative paper demonstration inside a graphite stage. The app visibility gate enables a finite scene; mobile uses separate static thumbnails.",
+      "html": "<div class=\"ds-demonstration\" data-playing=\"true\" aria-hidden=\"true\"><div class=\"ds-scene\"><div class=\"ds-content-art\"><div class=\"ds-script-sheet\"><div class=\"ds-sheet-head\"><span>Твоята публикация</span><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M14 3H5v18h14V8Z\"/><path d=\"M14 3v5h5M8 12h8M8 16h6\"/></svg></div><p>Покажи<br/><strong>как работиш.</strong></p><div class=\"ds-copy-lines\"><i></i><i></i><i></i></div><div class=\"ds-sheet-foot\"><span>Идея</span><span>→</span><span>Сценарий</span><span>→</span><span>Кадри</span></div></div><span class=\"ds-scene-caption\">Виж идеята, преди да снимаш.</span></div></div></div>",
+      "css": ".ds-demonstration{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);background:#191c20;border-radius:18px;padding:30px 24px;min-height:430px;overflow:hidden;isolation:isolate;position:relative;display:grid;align-items:center;justify-items:center}.ds-scene{width:100%;max-width:410px;min-height:370px;display:flex;align-items:center;justify-content:center}.ds-content-art{width:100%;display:flex;align-items:center;flex-direction:column;gap:30px;perspective:1000px}.ds-script-sheet{width:91%;background:#fff;border-radius:12px;padding:25px 25px 19px;box-shadow:0 18px 32px #0003;transform:rotate(-4deg);position:relative}.ds-sheet-head{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#636772}.ds-script-sheet>p{font-size:34px;margin:27px 0 25px;line-height:1.16;font-weight:500;letter-spacing:-.025em;color:#191b20}.ds-script-sheet>p strong{font-weight:720;color:#cf352c;position:relative}.ds-copy-lines{display:flex;flex-direction:column;gap:9px;margin-bottom:31px}.ds-copy-lines i{height:5px;border-radius:2px;background:#e8e9ed;width:90%;transform-origin:left center}.ds-copy-lines i:nth-child(2){width:100%}.ds-copy-lines i:last-child{width:66%}.ds-sheet-foot{display:flex;align-items:center;gap:10px;border-top:1px solid #e6e8eb;padding-top:17px;font-size:10px;color:#555a64}.ds-sheet-foot>span:nth-child(even){color:#cf352c}.ds-scene-caption{font-size:12px;line-height:1.5;color:#c4c8d0;text-align:center;max-width:32ch}@media(prefers-reduced-motion:no-preference){.ds-demonstration[data-playing=true] .ds-script-sheet{animation:ds-paper-settle 650ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-script-sheet>p strong{animation:ds-ink-appear 650ms 120ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-copy-lines i{animation:ds-line-write 550ms 250ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-copy-lines i:nth-child(2){animation-delay:330ms}.ds-demonstration[data-playing=true] .ds-copy-lines i:nth-child(3){animation-delay:410ms}@keyframes ds-paper-settle{from{transform:translateY(20px) rotate(-9deg);opacity:.3}to{transform:translateY(0) rotate(-4deg);opacity:1}}@keyframes ds-ink-appear{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}@keyframes ds-line-write{from{transform:scaleX(.12);opacity:.3}to{transform:scaleX(1);opacity:1}}}@media(max-width:1180px){.ds-demonstration{padding:28px 16px}.ds-script-sheet{padding:22px}.ds-script-sheet>p{font-size:30px}.ds-sheet-foot{gap:7px}}@media(max-width:760px){.ds-demonstration{display:none}}"
     }
   ],
   "narrative": {
@@ -429,7 +491,7 @@
       },
       {
         "name": "The Bounded Motion Rule",
-        "body": "Arrival reveals finish quickly and leave text and controls usable. The shell reveal lasts (260ms), entry previews (240ms), and ordinary color changes (160ms). Remove these arrivals and nonessential transitions for reduced motion. Do not add continuous WebGL or background animation to entry.",
+        "body": "Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). The home demonstrations run once and settle, with finite sequences lasting up to (1100ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.",
         "section": "elevation & depth"
       }
     ],
@@ -437,13 +499,14 @@
       "**Do** preserve the established silver-blue Academy logo.",
       "**Do** use graphite framing, cool paper and restrained red within the operating core.",
       "**Do** expose a direct next action and keep saved work reachable.",
+      "**Do** let each demonstration settle, stop it offscreen or in a hidden tab, and keep mobile thumbnails static.",
       "**Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.",
       "**Do** preserve the optional map and each editing module's independent behavior.",
       "**Do** give generated customer websites and brands their own appropriate visual identity."
     ],
     "donts": [
       "**Don't** restore blue glass, mountain atmosphere, neon noise or a cluttered collage in the operating core.",
-      "**Don't** require the 3D map or an extra confirmation before the selected entry task.",
+      "**Don't** require the 3D map, a preview tap, an animation to finish or an extra confirmation before the selected entry task.",
       "**Don't** obscure navigation, overload the first view, or duplicate supporting calls to action.",
       "**Don't** use invented activity, testimonials, progress or completed AI work as visual content.",
       "**Don't** equate a timer, preview, animation or selected map node with verified work, mastery or measured retention."

@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {ArrowRight,ArrowUpRight,Check,FileText} from '@phosphor-icons/react';
 import type {WorkspaceData,Lesson} from '@/lib/domain';
 import styles from './academy-entry.module.css';
@@ -34,18 +34,34 @@ export function AcademyEntry({data,nextLesson,openWorkflow,openBusiness,openWork
      <span className={styles.copy}><strong>{item.short}</strong><span>{item.benefit}</span></span><span className={styles.mobilePreview} aria-hidden="true"><OutcomePreview kind={item.id}/></span><ArrowUpRight className={styles.arrow} size={23} aria-hidden="true"/>
     </button>)}
    </nav>
-   <div className={styles.preview} aria-hidden="true"><OutcomePreview key={preview} kind={preview}/></div>
+   <OutcomeStage kind={preview}/>
   </div>
   {work.failed?<div className={styles.resumeError}><p>Запазените задачи не се заредиха.</p><button onClick={work.retry}>Опитай отново<ArrowRight size={17}/></button></div>:null}
   <footer className={styles.footer}><button className={styles.example} onClick={()=>openLesson(nextLesson.id)}>Пробвай с готов пример<ArrowRight size={18}/></button><div><button onClick={openLibrary}>Всички примери<ArrowUpRight size={16}/></button><button onClick={openCommunity}>Попитай общността<ArrowUpRight size={16}/></button></div></footer>
  </section>;
 }
 
+function OutcomeStage({kind}:{kind:Goal}){
+ const ref=useRef<HTMLDivElement>(null);
+ const [playing,setPlaying]=useState(false);
+ useEffect(()=>{
+  const node=ref.current;
+  if(!node||!('IntersectionObserver' in window))return;
+  let visible=false;
+  const sync=()=>setPlaying(visible&&!document.hidden);
+  const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;sync();},{threshold:.2});
+  observer.observe(node);
+  document.addEventListener('visibilitychange',sync);
+  return()=>{observer.disconnect();document.removeEventListener('visibilitychange',sync);};
+ },[]);
+ return <div ref={ref} className={styles.preview} data-playing={playing} aria-hidden="true"><OutcomePreview key={kind} kind={kind}/></div>;
+}
+
 function OutcomePreview({kind}:{kind:Goal}){
  return <div className={styles.previewScene} data-kind={kind}>
   {kind==='content'?<div className={styles.contentArt}><div className={styles.scriptSheet}><div className={styles.sheetHead}><span>Твоята публикация</span><FileText size={18}/></div><p>Покажи<br/><strong>как работиш.</strong></p><div className={styles.copyLines}><i/><i/><i/></div><div className={styles.sheetFoot}><span>Идея</span><ArrowRight size={15}/><span>Сценарий</span><ArrowRight size={15}/><span>Кадри</span></div></div><span className={styles.caption}>Виж идеята, преди да снимаш.</span></div>:
-   kind==='business'?<div className={styles.businessArt}><div className={styles.siteSheet}><div className={styles.browserChrome}><i/><i/><i/></div><div className={styles.siteNav}><strong>Твоят бизнес</strong><span>Услуги&nbsp;&nbsp; Контакт</span></div><div className={styles.siteHero}><strong>Това, което<br/>правиш.<br/><em>Вече онлайн.</em></strong><div className={styles.siteShape}><span/><span/><span/></div></div><div className={styles.siteBottom}><span>Твоята оферта</span><ArrowUpRight size={16}/></div></div><span className={styles.caption}>Дай форма на своя бизнес.</span></div>:
+   kind==='business'?<div className={styles.businessArt}><div className={styles.siteSheet}><div className={styles.browserChrome}><i/><i/><i/></div><div className={styles.siteNav}><strong>Твоят бизнес</strong><span>Услуги&nbsp;&nbsp; Контакт</span></div><div className={styles.siteHero}><strong>Това, което<br/>правиш.<br/><em>Вече онлайн.</em></strong><div className={styles.siteShape}><span>Твоята<br/>марка.</span><ArrowUpRight size={24}/></div></div><div className={styles.siteBottom}><span>Твоята оферта</span><span className={styles.siteAction}>Свържи се<ArrowUpRight size={13}/></span></div></div><span className={styles.caption}>Дай форма на своя бизнес.</span></div>:
    kind==='automation'?<div className={styles.processArt}><div className={styles.processStep}><span className={styles.processDot}/><strong>Ново запитване</strong></div><div className={styles.processConnector}/><div className={styles.processStep}><span className={styles.processingDot}/><strong>Подготвен отговор</strong></div><div className={styles.processConnector}/><div className={styles.processStep}><Check size={20}/><strong>Твоята проверка</strong></div><span className={styles.caption}>Пример: по-лесен път до отговора.</span></div>:
-   <div className={styles.focusArt}><div className={styles.focusDial}><span>05<small>минути</small></span></div><strong>Една задача.<br/>Цялото ти внимание.</strong></div>}
+   <div className={styles.focusArt}><div className={styles.focusDial}><svg className={styles.focusOrbit} viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="98" pathLength="100"/></svg><span>05<small>минути</small></span></div><strong>Една задача.<br/>Цялото ти внимание.</strong></div>}
  </div>;
 }
