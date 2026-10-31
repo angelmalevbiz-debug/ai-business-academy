@@ -53,3 +53,9 @@ The owner requested a simpler complete design direction and rejected the busy mu
 ## Approved motion refinement, 30 October 2026
 
 The user approved the current minimalist direction and requested more visual interest while keeping it clear and concise. Preserve that composition. Use bounded explanatory demonstrations and immediate feedback rather than adding navigation steps or more marketing copy. Supporting Academy description and copyright live in About, accessible from the sidebar. Direct task entry, mobile clarity and reduced-motion support remain requirements. Visual interest is a design goal; dopamine, retention and learning efficacy have not been measured.
+
+## Home correction, 31 October 2026
+
+The user explicitly rejected the generated four-object spatial home: oversized camera/portrait, villa displayed on a monitor, chrome process and physical timer. These representations did not make the software's value understandable. Return to the preceding four-row goal list and one changing preview. Do not reintroduce decorative generated object galleries as a response to requests for professional design or engagement.
+
+Demonstrate the actual type of output with code-native examples: a publication, recognizable flat service webpage, inquiry/reply and focused task. Label each example honestly. On phones, use readable goal labels and simple icons; do not shrink desktop interfaces into unreadable thumbnails. Preserve direct task navigation, real saved work, the silver-blue identity, and About. Visual approval of this new correction remains the user's judgment; passing tests is not proof of taste, retention or learning efficacy.

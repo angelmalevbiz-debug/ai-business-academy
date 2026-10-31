@@ -54,7 +54,7 @@ rounded:
   compact-panel: "12px"
   panel: "14px"
   tag: "20px"
-  demonstration: "18px"
+  demonstration: "16px"
 spacing:
   compact: "8px"
   control-gap: "12px"
@@ -158,9 +158,9 @@ Use soft shadows only where they explain a temporary layer or a preview artifact
 
 The optional 3D workflow map keeps true perspective, prepared reflections and independent camera movement. Load it on request; pause it when hidden or offscreen and stop camera movement after settling. Selecting a node is navigation, not evidence that a job ran.
 
-**The Bounded Motion Rule.** Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). The home demonstrations run once and settle, with finite sequences lasting up to (1100ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.
+**The Bounded Motion Rule.** Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). Home scenes arrive once and settle (250ms), fading from a small vertical offset (7px). The sample publication has one small rule reveal ending at (600ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.
 
-Run home demonstration sequences only while the stage intersects the viewport and the document is visible. A new desktop hover or keyboard focus replaces the current scene without queuing work. On phones, keep the compact thumbnails static. The visible labels carry the information when motion is unavailable.
+Run home demonstration sequences only while the stage intersects the viewport and the document is visible. A new desktop hover or keyboard focus replaces the current scene without queuing work. On phones, omit the desktop stage and use large visible goal labels with Phosphor icons. The labels carry the information without miniature interface text or animation.
 
 ## Shapes
 
@@ -190,9 +190,9 @@ Working paper is for the current task and readable results. Dark supporting card
 Category tags are compact, outlined labels. Selected filters use paper and dark text. A tag, counter or success mark must represent a real category, selection or saved state; never invent activity or achievement to populate a design.
 
 ### Goal Entry
-Each home goal is a direct button that immediately opens its exact destination. Desktop hover or keyboard focus selects one explanatory scene within a single graphite stage: a paper draft settles and writes, a website assembles, a process connects through a review step, or a focus arc draws. Each sequence finishes and settles; it represents a demonstration rather than live job execution. Avoid a collage of simultaneous concepts.
+Each home goal is a direct button that immediately opens its exact destination. Desktop hover or keyboard focus selects one code-native sample within a single graphite stage: a publication, a flat service webpage with an inquiry action, an inquiry with a prepared reply awaiting human review, or a one-task focus panel. Each scene has an explicit sample caption and represents an example rather than live job execution. The scene arrives briefly and settles. Avoid a collage of simultaneous concepts.
 
-On phones, keep the goal readable and its static compact thumbnail separate from the text. The previews are decorative and hidden from assistive technology; visible labels explain the action without relying on miniature text or animation. Touch opens the destination directly. A saved-work row or a real example remains secondary and useful.
+On phones, large goal labels and simple Phosphor icons keep each destination readable; omit the desktop preview stage and do not shrink an interface into a thumbnail. The samples and icons are decorative and hidden from assistive technology. Visible labels explain the action without relying on miniature text or animation. Touch opens the destination directly. The saved-work row uses real saved work, and a real example remains secondary and useful.
 
 ### Dialogs / Feedback
 Use the existing native dialog behavior for temporary information: clear title, visible close action, keyboard dismissal and focus return. The opening motion is brief (220ms) and resolves from a small offset and scale. The About dialog preserves the established product description, copyright and community feedback action. On mobile, close the navigation drawer before opening it and return focus to the menu trigger.
@@ -208,7 +208,7 @@ The current task is the working surface. Offer spatial exploration explicitly in
 - **Do** preserve the established silver-blue Academy logo.
 - **Do** use graphite framing, cool paper and restrained red within the operating core.
 - **Do** expose a direct next action and keep saved work reachable.
-- **Do** let each demonstration settle, stop it offscreen or in a hidden tab, and keep mobile thumbnails static.
+- **Do** let each sample settle, gate its motion when offscreen or in a hidden tab, and use large labels with simple icons on phones.
 - **Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.
 - **Do** preserve the optional map and each editing module's independent behavior.
 - **Do** give generated customer websites and brands their own appropriate visual identity.

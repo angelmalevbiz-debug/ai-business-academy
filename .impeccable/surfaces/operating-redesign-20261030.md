@@ -25,3 +25,11 @@ Final rendered checks:17route/viewport cases,7read-onlyjourneys, nooverflow, noA
 The later 30 October refinement preserves the approved composition and makes the selected goal visible through one authored sequence. No additional task step, image collage, dependency or raster asset was added. Feedback stays brief; scenes finish within 1100ms, stop offscreen or in a hidden document, and remain static with reduced motion. The repeated footer is available in the native About dialog.
 
 Final guest checks: 22 capture cases, 10 interaction checks, 14 sampled Axe states with no reported violations, and no horizontal overflow. The independent finish reviewer returned **ship — changed presentation scope**, with no material finding. Fourfold CPU throttle: median 16.7ms, p95 33.3ms, maximum 49.9ms across 98 requestAnimationFrame intervals. This diagnostic does not establish device FPS or retention. Details: docs/design-review-20261030/MOTION.md.
+
+## User correction, 31 October 2026
+
+The user rejected the subsequent uncommitted spatial object gallery and preferred the prior list/preview composition. The rejected generated assets and spatial brief are archived privately and are not part of the public build. The operative home is again the four-row goal list plus one changing code-native sample. Do not treat the rejected exploratory image as approved direction.
+
+The home samples now depict a publication, a flat service webpage, an inquiry with a reply awaiting review, and one focus task. Their explicit sample captions prevent a claim that AI work was completed. On mobile, readable labels and simple Phosphor icons replace miniature interface thumbnails. Short 250ms arrival and one 600ms rule reveal settle and respect visibility and reduced motion. No pointer camera or new raster assets remain.
+
+Verification: 13 captures at eight base widths plus a 720px layout check; nine read-only guest interaction checks, no reported Axe violations or overflow. Independent review disposition: ship the scoped correction, with no material findings; this does not imply user visual approval. Production healthy, internal/public/workspace endpoints HTTP 200. Detailed scope and limits: docs/design-review-20261030/CORRECTION-20261031.md.

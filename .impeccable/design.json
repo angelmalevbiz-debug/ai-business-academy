@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T20:16:35.522Z",
+  "generatedAt": "2026-10-31T16:53:31.525Z",
   "title": "Design System: AI Business Academy",
   "extensions": {
     "colorMeta": {
@@ -244,15 +244,15 @@
       },
       "demonstration-ground": {
         "role": "neutral",
-        "displayName": "Demonstration Graphite",
+        "displayName": "Demonstration Ground",
         "tonalRamp": [
           "oklch(15.0% 0.0090 255.6)",
-          "oklch(26.5% 0.0090 255.6)",
-          "oklch(38.0% 0.0090 255.6)",
-          "oklch(49.5% 0.0090 255.6)",
-          "oklch(61.0% 0.0090 255.6)",
-          "oklch(72.5% 0.0090 255.6)",
-          "oklch(84.0% 0.0090 255.6)",
+          "oklch(26.4% 0.0090 255.6)",
+          "oklch(37.9% 0.0090 255.6)",
+          "oklch(49.3% 0.0090 255.6)",
+          "oklch(60.7% 0.0090 255.6)",
+          "oklch(72.1% 0.0090 255.6)",
+          "oklch(83.6% 0.0090 255.6)",
           "oklch(95.0% 0.0090 255.6)"
         ]
       }
@@ -282,7 +282,7 @@
     "shadows": [
       {
         "name": "preview-paper",
-        "value": "0 18px 32px #0003",
+        "value": "0 15px 28px #0003",
         "purpose": "A paper or website artifact lifted inside the graphite home demonstration stage."
       },
       {
@@ -325,27 +325,17 @@
       {
         "name": "goal-signifier",
         "value": "180ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "A home choice's copy shifts 5px on hover/focus and 2px while pressed; the exact destination opens directly."
+        "purpose": "A home choice's copy shifts 4px on hover or keyboard focus; the exact destination opens directly."
       },
       {
-        "name": "paper-settle",
-        "value": "650ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "One content artifact settles from 20px and -9deg to -4deg; text reveal and line writing finish by 960ms."
+        "name": "example-arrival",
+        "value": "250ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "The selected sample fades from opacity .55 and translateY(7px) to opacity 1 and translateY(0), then settles."
       },
       {
-        "name": "website-assemble",
-        "value": "650ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "One website artifact settles; its title, brand shape and action appear in a bounded sequence ending by 750ms."
-      },
-      {
-        "name": "process-connect",
-        "value": "380ms ease-out",
-        "purpose": "Two sample process connections fill with 180ms and 560ms delays; the review check finishes at 1080ms."
-      },
-      {
-        "name": "focus-trace",
-        "value": "1100ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "The focus preview arc draws once to 72/100 and settles; it is an illustration, not an actual timer."
+        "name": "editor-rule-reveal",
+        "value": "480ms 120ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "The sample publication rule expands once from scaleX(.15) to scaleX(1); the complete reveal ends at 600ms."
       },
       {
         "name": "dialog-open",
@@ -360,7 +350,7 @@
       {
         "name": "demonstration-visibility",
         "value": "IntersectionObserver threshold .2 + document.hidden",
-        "purpose": "Apply finite desktop scene animations only when the stage intersects the viewport and the document is visible. Replace the keyed scene on goal changes; do not queue animations. Mobile thumbnails remain static."
+        "purpose": "Apply finite desktop scene animations only when the stage intersects the viewport and the document is visible. Replace the keyed scene on goal changes; do not queue animations. On phones, omit the desktop stage and use large labels with Phosphor icons."
       },
       {
         "name": "reduced-motion",
@@ -369,6 +359,10 @@
       }
     ],
     "breakpoints": [
+      {
+        "name": "entry-preview-compact",
+        "value": "1180px"
+      },
       {
         "name": "navigation-drawer",
         "value": "1100px"
@@ -442,9 +436,9 @@
     {
       "name": "Goal Destination",
       "kind": "custom",
-      "description": "One direct home action; desktop hover or keyboard focus selects its single explanatory stage scene.",
-      "html": "<button class=\"ds-goal\" type=\"button\"><span class=\"ds-goal-copy\"><strong>Създай съдържание</strong><span>От ясна идея до полезна чернова.</span></span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
-      "css": ".ds-goal{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;padding:25px 0;text-align:left;background:none;color:#15171b;border:0;border-top:1px solid #dadddf;border-bottom:1px solid #dadddf;border-radius:0;min-height:104px;cursor:pointer}.ds-goal-copy{display:block;min-width:0}.ds-goal-copy>strong{display:block;font-size:clamp(23px,2.2vw,30px);font-weight:650;line-height:1.2;letter-spacing:-.025em}.ds-goal-copy>span{display:block;font-size:14px;line-height:1.5;margin-top:8px;color:#61646d}.ds-goal>svg{flex-shrink:0;color:#737780}.ds-goal:hover>svg{transform:translate(3px,-3px)}.ds-goal[data-preview=true]>svg,.ds-goal[data-preview=true] strong{color:#cf352c}.ds-goal:focus-visible{outline:3px solid #2c68b0;outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-goal>svg{transition:color 180ms ease,transform 220ms cubic-bezier(.16,1,.3,1)}}@media(max-width:760px){.ds-goal{gap:12px;padding:24px 0}.ds-goal-copy>strong{font-size:26px}.ds-goal-copy>span{font-size:13px;max-width:31ch}}@media(prefers-reduced-motion:no-preference){.ds-goal-copy{transition:transform 180ms cubic-bezier(.16,1,.3,1)}.ds-goal:is(:hover,:focus-visible) .ds-goal-copy{transform:translateX(5px)}.ds-goal:active .ds-goal-copy{transform:translateX(2px)}}"
+      "description": "The four direct home choices. Large labels and decorative Phosphor icons replace miniature interface thumbnails on phones.",
+      "html": "<nav class=\"ds-destinations\" aria-label=\"Какво искаш да постигнеш\"><button class=\"ds-destination\" data-goal=\"content\" data-preview=\"true\"><span class=\"ds-copy\"><strong>Съдържание</strong><span>Публикации, сценарии и идеи.</span></span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"31\" height=\"31\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-mobileSymbol\" aria-hidden=\"true\"><path d=\"M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM184,96a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,96Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,128Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,160Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"23\" height=\"23\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-arrow\" aria-hidden=\"true\"><path d=\"M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z\"></path></svg></button><button class=\"ds-destination\" data-goal=\"business\" data-preview=\"false\"><span class=\"ds-copy\"><strong>Моят бизнес</strong><span>Сайт, оферта или ясен план.</span></span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"31\" height=\"31\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-mobileSymbol\" aria-hidden=\"true\"><path d=\"M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V88H40V56Zm0,144H40V104H216v96Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"23\" height=\"23\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-arrow\" aria-hidden=\"true\"><path d=\"M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z\"></path></svg></button><button class=\"ds-destination\" data-goal=\"automation\" data-preview=\"false\"><span class=\"ds-copy\"><strong>По-малко рутина</strong><span>Подреди повтарящите се задачи.</span></span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"31\" height=\"31\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-mobileSymbol\" aria-hidden=\"true\"><path d=\"M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"23\" height=\"23\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-arrow\" aria-hidden=\"true\"><path d=\"M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z\"></path></svg></button><button class=\"ds-destination\" data-goal=\"focus\" data-preview=\"false\"><span class=\"ds-copy\"><strong>Фокус и навици</strong><span>Отдели време за важната задача.</span></span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"31\" height=\"31\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-mobileSymbol\" aria-hidden=\"true\"><path d=\"M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z\"></path></svg><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"23\" height=\"23\" fill=\"currentColor\" viewBox=\"0 0 256 256\" class=\"ds-arrow\" aria-hidden=\"true\"><path d=\"M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z\"></path></svg></button></nav>",
+      "css": ".ds-destinations{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);--entry-ink:#15171b;--entry-muted:#61646d;--entry-accent:#cf352c}\n.ds-destinations{display:flex;flex-direction:column;min-width:0}\n.ds-destination{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;padding:25px 0;text-align:left;background:none;color:var(--entry-ink);border:0;border-bottom:1px solid #dadddf;border-radius:0;position:relative;min-height:104px}\n.ds-destination:first-child{border-top:1px solid #dadddf}\n.ds-copy{display:block;min-width:0}.ds-copy>strong{display:block;font-size:clamp(23px,2.2vw,30px);font-weight:650;line-height:1.2;letter-spacing:-.025em}.ds-copy>span{display:block;font-size:14px;line-height:1.5;margin-top:8px;color:var(--entry-muted)}\n.ds-arrow{flex-shrink:0;color:#737780}.ds-destination[data-preview=true] .ds-arrow,.ds-destination[data-preview=true] .ds-copy>strong{color:var(--entry-accent)}\n.ds-mobileSymbol{display:none}\n@media(prefers-reduced-motion:no-preference){\n .ds-arrow{transition:color 160ms ease,transform 180ms cubic-bezier(.16,1,.3,1)}.ds-destination:hover .ds-arrow{transform:translate(3px,-3px)}\n .ds-copy{transition:transform 180ms cubic-bezier(.16,1,.3,1)}.ds-destination:is(:hover,:focus-visible) .ds-copy{transform:translateX(4px)}\n}\n@media(max-width:760px){.ds-destination{min-height:109px;padding:25px 0;gap:12px}.ds-copy{flex:1}.ds-copy>strong{font-size:26px}.ds-copy>span{font-size:13px;line-height:1.5;margin-top:8px;max-width:30ch}.ds-mobileSymbol{display:block;flex-shrink:0;color:#697380;margin-left:3px}.ds-destination[data-preview=true] .ds-mobileSymbol{color:#b62d25}.ds-destination>.ds-arrow{width:18px}}\n@media(max-width:370px){.ds-copy>strong{font-size:23px}.ds-copy>span{font-size:12px;max-width:27ch}.ds-destination{min-height:104px;gap:8px}.ds-mobileSymbol{width:27px;height:27px}.ds-destination>.ds-arrow{width:17px}}\n@media(prefers-reduced-motion:reduce){.ds-arrow,.ds-copy{transition:none}.ds-destination:is(:hover,:focus-visible) .ds-copy{transform:none}}.ds-destination{cursor:pointer}.ds-destination:focus-visible{outline:3px solid #2c68b0;outline-offset:5px}"
     },
     {
       "name": "More Disclosure",
@@ -464,9 +458,9 @@
       "name": "Goal Demonstration Stage",
       "kind": "custom",
       "refersTo": "goal-demonstration",
-      "description": "One decorative paper demonstration inside a graphite stage. The app visibility gate enables a finite scene; mobile uses separate static thumbnails.",
-      "html": "<div class=\"ds-demonstration\" data-playing=\"true\" aria-hidden=\"true\"><div class=\"ds-scene\"><div class=\"ds-content-art\"><div class=\"ds-script-sheet\"><div class=\"ds-sheet-head\"><span>Твоята публикация</span><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M14 3H5v18h14V8Z\"/><path d=\"M14 3v5h5M8 12h8M8 16h6\"/></svg></div><p>Покажи<br/><strong>как работиш.</strong></p><div class=\"ds-copy-lines\"><i></i><i></i><i></i></div><div class=\"ds-sheet-foot\"><span>Идея</span><span>→</span><span>Сценарий</span><span>→</span><span>Кадри</span></div></div><span class=\"ds-scene-caption\">Виж идеята, преди да снимаш.</span></div></div></div>",
-      "css": ".ds-demonstration{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif);background:#191c20;border-radius:18px;padding:30px 24px;min-height:430px;overflow:hidden;isolation:isolate;position:relative;display:grid;align-items:center;justify-items:center}.ds-scene{width:100%;max-width:410px;min-height:370px;display:flex;align-items:center;justify-content:center}.ds-content-art{width:100%;display:flex;align-items:center;flex-direction:column;gap:30px;perspective:1000px}.ds-script-sheet{width:91%;background:#fff;border-radius:12px;padding:25px 25px 19px;box-shadow:0 18px 32px #0003;transform:rotate(-4deg);position:relative}.ds-sheet-head{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#636772}.ds-script-sheet>p{font-size:34px;margin:27px 0 25px;line-height:1.16;font-weight:500;letter-spacing:-.025em;color:#191b20}.ds-script-sheet>p strong{font-weight:720;color:#cf352c;position:relative}.ds-copy-lines{display:flex;flex-direction:column;gap:9px;margin-bottom:31px}.ds-copy-lines i{height:5px;border-radius:2px;background:#e8e9ed;width:90%;transform-origin:left center}.ds-copy-lines i:nth-child(2){width:100%}.ds-copy-lines i:last-child{width:66%}.ds-sheet-foot{display:flex;align-items:center;gap:10px;border-top:1px solid #e6e8eb;padding-top:17px;font-size:10px;color:#555a64}.ds-sheet-foot>span:nth-child(even){color:#cf352c}.ds-scene-caption{font-size:12px;line-height:1.5;color:#c4c8d0;text-align:center;max-width:32ch}@media(prefers-reduced-motion:no-preference){.ds-demonstration[data-playing=true] .ds-script-sheet{animation:ds-paper-settle 650ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-script-sheet>p strong{animation:ds-ink-appear 650ms 120ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-copy-lines i{animation:ds-line-write 550ms 250ms cubic-bezier(.16,1,.3,1) both}.ds-demonstration[data-playing=true] .ds-copy-lines i:nth-child(2){animation-delay:330ms}.ds-demonstration[data-playing=true] .ds-copy-lines i:nth-child(3){animation-delay:410ms}@keyframes ds-paper-settle{from{transform:translateY(20px) rotate(-9deg);opacity:.3}to{transform:translateY(0) rotate(-4deg);opacity:1}}@keyframes ds-ink-appear{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}@keyframes ds-line-write{from{transform:scaleX(.12);opacity:.3}to{transform:scaleX(1);opacity:1}}}@media(max-width:1180px){.ds-demonstration{padding:28px 16px}.ds-script-sheet{padding:22px}.ds-script-sheet>p{font-size:30px}.ds-sheet-foot{gap:7px}}@media(max-width:760px){.ds-demonstration{display:none}}"
+      "description": "The actual code-native sample publication in the single graphite stage. The other selected scenes show a flat service webpage, an inquiry with a prepared reply, or one task for focus. Every scene has a sample caption, is decorative, and is omitted on phones. App visibility gating enables the finite motion.",
+      "html": "<div class=\"ds-preview\" data-playing=\"true\" aria-hidden=\"true\"><div class=\"ds-previewScene\" data-kind=\"content\"><div class=\"ds-contentPreview\"><div class=\"ds-publication\"><div class=\"ds-publicationHeader\"><span class=\"ds-brandMonogram\">A</span><span>AI Business Academy</span></div><div class=\"ds-publicationVisual\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM184,96a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,96Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,128Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,160Z\"></path></svg><p>Покажи<br/><strong>как работиш.</strong></p><span class=\"ds-editorRule\"></span></div><div class=\"ds-publicationCaption\">Как започна. Какво пробва. Какво промени.</div></div><span class=\"ds-caption\">Примерна публикация</span></div></div></div>",
+      "css": ".ds-preview{font-family:var(--font-sans,\"Manrope Variable\",Manrope,sans-serif)}\n.ds-preview{min-width:0;display:grid;align-items:center;justify-items:center;min-height:430px;padding:30px 24px;background:#191c20;border-radius:16px;overflow:hidden;isolation:isolate}\n.ds-previewScene{width:100%;max-width:410px;min-height:370px;display:flex;align-items:center;justify-content:center}\n.ds-contentPreview{width:100%;display:flex;flex-direction:column;align-items:center;gap:25px}\n.ds-caption{font-size:12px;line-height:1.5;color:#c4c8d0;text-align:center;max-width:34ch}\n.ds-publication{width:92%;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 15px 28px #0003}\n.ds-publicationHeader{display:flex;align-items:center;gap:10px;padding:15px 18px;color:#252931;font-size:11px;font-weight:600}\n.ds-brandMonogram{display:grid;place-items:center;width:25px;height:25px;border-radius:5px;background:#20242a;color:#fff;font-size:17px;font-weight:700}\n.ds-publicationVisual{background:#e6e9ed;color:#20242a;margin:0 9px;padding:23px 20px 22px;position:relative}\n.ds-publicationVisual>svg{color:#3e4652}\n.ds-publicationVisual p{font-size:clamp(28px,3.1vw,39px);font-weight:500;line-height:1.12;letter-spacing:-.025em;margin:22px 0 24px}\n.ds-publicationVisual strong{font-weight:740;color:#b62d25}\n.ds-editorRule{display:block;width:40px;height:3px;background:#cf352c;transform-origin:left center}\n.ds-publicationCaption{font-size:11px;line-height:1.65;color:#5b6471;padding:15px 18px 19px;max-width:35ch}\n@media(prefers-reduced-motion:no-preference){\n .ds-preview[data-playing=true] .ds-previewScene{animation:ds-exampleArrival 250ms cubic-bezier(.16,1,.3,1)}\n .ds-preview[data-playing=true] .ds-editorRule{animation:ds-editorRuleReveal 480ms 120ms cubic-bezier(.16,1,.3,1) both}\n @keyframes ds-exampleArrival{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}\n @keyframes ds-editorRuleReveal{from{transform:scaleX(.15)}to{transform:scaleX(1)}}\n}\n@media(max-width:1180px){.ds-preview{padding:28px 20px}.ds-publicationHeader{padding:14px}.ds-publicationVisual{padding:21px 17px}.ds-publicationVisual p{font-size:31px}}\n@media(max-width:760px){.ds-preview{display:none}}\n@media(prefers-reduced-motion:reduce){.ds-previewScene,.ds-editorRule{animation:none}}"
     }
   ],
   "narrative": {
@@ -491,15 +485,15 @@
       },
       {
         "name": "The Bounded Motion Rule",
-        "body": "Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). The home demonstrations run once and settle, with finite sequences lasting up to (1100ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.",
-        "section": "elevation & depth"
+        "body": "Motion explains a goal, acknowledges a press or distinguishes a temporary layer. Shell routes use an opacity-only arrival (180ms); ordinary color changes use (160ms). Home scenes arrive once and settle (250ms), fading from a small vertical offset (7px). The sample publication has one small rule reveal ending at (600ms). Direct actions remain usable throughout. Remove nonessential sequences, spatial movement and backdrop blur for reduced motion; never add continuous WebGL or background animation to entry.",
+        "section": "elevation"
       }
     ],
     "dos": [
       "**Do** preserve the established silver-blue Academy logo.",
       "**Do** use graphite framing, cool paper and restrained red within the operating core.",
       "**Do** expose a direct next action and keep saved work reachable.",
-      "**Do** let each demonstration settle, stop it offscreen or in a hidden tab, and keep mobile thumbnails static.",
+      "**Do** let each sample settle, gate its motion when offscreen or in a hidden tab, and use large labels with simple icons on phones.",
       "**Do** retain visible keyboard focus, readable contrast, responsive controls and reduced-motion support.",
       "**Do** preserve the optional map and each editing module's independent behavior.",
       "**Do** give generated customer websites and brands their own appropriate visual identity."
