@@ -1,0 +1,197 @@
+<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FORMA siteforge-current-style</title><style>/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #fafafa;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Brand colors */
+:root {
+  --primary: #2c3e50;   /* dark slate */
+  --accent: #e67e22;    /* warm orange */
+  --bg: #ffffff;
+}
+
+/* Header */
+.site-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 0;
+}
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.cta-button {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.cta-button:hover,
+.cta-button:focus {
+  background: #d35400;
+}
+
+/* Sections */
+section {
+  padding: 2rem 0;
+}
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* Services */
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+.service-list li {
+  background: var(--bg);
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--accent);
+}
+
+/* About */
+.about-text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+.contact a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.contact a:hover,
+.contact a:focus {
+  color: #d35400;
+}
+
+/* Responsive adjustments */
+@media (min-width: 500px) {
+  .service-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .service-list li {
+    flex: 1;
+    margin: 0 0.5rem;
+  }
+}
+</style></head><body><!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>FORMA – Студио за интериорен дизайн</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">FORMA</h1>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1400&q=85" alt="Интериорно пространство" class="hero-image" />
+    <div class="hero-overlay">
+      <h1 class="hero-title">Пространства, в които е добре да живееш.</h1>
+      <a href="mailto:hello@forma.example" class="cta-button">Свържете се с нас</a>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Услуги</h2>
+      <ul class="service-list">
+        <li>Концепции за жилищни интериори</li>
+        <li>Функционално планиране на пространства</li>
+        <li>Подбор на материали и мебели</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">За нас</h2>
+      <p class="about-text">FORMA разработва концепции за съвременни жилища и малки офиси. Работим с ясни планове, материали и визуална последователност.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="contact">Контакт: <a href="mailto:hello@forma.example">hello@forma.example</a></p>
+    </div>
+  </footer>
+</body>
+</html><div style="position:fixed;right:10px;bottom:10px;font:11px Arial;color:#333;background:#fffe;padding:6px;border-radius:5px;z-index:99999">ТЕСТ · siteforge-current-style</div></body></html>
